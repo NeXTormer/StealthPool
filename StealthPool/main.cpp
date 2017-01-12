@@ -2,37 +2,15 @@
 #include <SFML/Graphics.hpp>
 #include <random>
 
-
-//#define FULLSCREEENWINDOWPETER 
-
-sf::RectangleShape *shapes = new sf::RectangleShape[10000];
+#include "src\utils\utils.h"
 
 
 
-void addRects(sf::RenderWindow &window) {
-	std::random_device rd;     
-	std::mt19937 rng(rd());    
-	std::uniform_int_distribution<int> uni(0, 255); 
-	
-	int p = 0;
-	for (int j = 0; j < 100; j++) {
-		for (int i = 0; i < 100; i++) {
-			sf::RectangleShape shape(sf::Vector2f(30, 30));
-			shape.setPosition(sf::Vector2f(j * 30, i * 30));
-			shape.setFillColor(sf::Color(uni(rng), uni(rng), uni(rng)));
-			p++;
-			shapes[p] = shape;
-		}
-	}
-	std::cout << sizeof(shapes) * 10000 << std::endl;
-
-}
 
 int main() {
 
-	std::cout << "RENDL" << std::endl;
 
-#ifdef FULLSCREEENWINDOWPETER
+#if 0
 	sf::RenderWindow window(sf::VideoMode(2560, 1440), "Peter", sf::Style::Fullscreen);
 	sf::View view(sf::Vector2f(2560 / 2, 1440 / 2), sf::Vector2f(2560, 1440));
 
@@ -46,19 +24,14 @@ int main() {
 	sf::Clock clock;
 	sf::Time time;
 	sf::CircleShape shape(50);
-	addRects(window);
 
 	shape.setPosition(sf::Vector2f(100, 100));
 
 	while (window.isOpen()) {
 		window.clear(clearcolor);
 		
-		for (int i = 0; i < 10000; i++) {
-			window.draw(shapes[i]);
-		}
 		window.draw(shape);
 
-		//shape.setPosition(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) view.move(sf::Vector2f(-10, 0));
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) view.move(sf::Vector2f(10, 0));
@@ -88,7 +61,7 @@ int main() {
 		window.display();
 
 		time = clock.getElapsedTime();
-		std::cout << 1.0f / time.asSeconds() << std::endl;
+		//std::cout << 1.0f / time.asSeconds() << std::endl;
 
 		clock.restart().asSeconds();
 	}
