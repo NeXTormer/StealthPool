@@ -3,8 +3,7 @@
 #include <random>
 
 #include "src\utils\utils.h"
-#include "src\gamestates\gamestatemanager.h"
-#include "src\gamestates\menustate.h"
+
 
 
 
@@ -28,15 +27,10 @@ int main() {
 
 	shape.setPosition(sf::Vector2f(100, 100));
 
-	GameStateManager gsm;
-	MenuState menustate;// gsm);
-
-
 	while (window.isOpen()) {
 		window.clear(clearcolor);
 		
-		menustate.update(0.01);
-		menustate.draw();
+		window.draw(shape);
 
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) view.move(sf::Vector2f(-10, 0));
@@ -46,7 +40,7 @@ int main() {
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) view.zoom(1.1);
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) view.zoom(0.9);
 		window.setView(view);
-		
+
 
 		sf::Event ev;
 		while (window.pollEvent(ev)) {

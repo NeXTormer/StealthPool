@@ -158,21 +158,10 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\entities\Player.cpp" />
-    <ClCompile Include="src\gamestates\GameStateManager.cpp" />
-    <ClCompile Include="src\gamestates\MenuState.cpp" />
-    <ClCompile Include="src\levels\LevelOne.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\entities\player.h" />
-    <ClInclude Include="src\gamestates\gamestate.h" />
-    <ClInclude Include="src\gamestates\gamestatemanager.h" />
-    <ClInclude Include="src\gamestates\menustate.h" />
-    <ClInclude Include="src\levels\levelone.h" />
     <ClInclude Include="src\utils\utils.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

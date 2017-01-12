@@ -8,9 +8,9 @@ GameStateManager::~GameStateManager()
 {
 }
 
-void GameStateManager::draw() 
+void GameStateManager::draw(sf::RenderWindow &window) 
 {
-	gamestates.top().draw();
+	gamestates.top().draw(window);
 }
 
 void GameStateManager::update(const float &delta) 

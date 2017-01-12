@@ -8,15 +8,10 @@ class Player
 public:
 	sf::Vector2f pos;
 	
-	Player(sf::RenderWindow &window, sf::Vector2f pos);
-	Player(sf::RenderWindow &window);
-	~Player();
-
 	void update(const float &delta);
-	void draw();
+	void draw(sf::RenderWindow &window);
 private:
-	sf::CircleShape m_shape;
-	sf::Texture m_texture;
-	sf::RenderWindow &m_window;
+	sf::CircleShape shape;
+	sf::Texture texture;
 };
 
