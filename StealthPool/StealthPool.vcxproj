@@ -158,9 +158,12 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\entities\Player.cpp" />
+    <ClCompile Include="src\gamestates\GameStateManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\entities\player.h" />
+    <ClInclude Include="src\gamestates\gamestate.h" />
+    <ClInclude Include="src\gamestates\gamestatemanager.h" />
     <ClInclude Include="src\utils\utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
