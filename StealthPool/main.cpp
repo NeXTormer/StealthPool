@@ -3,7 +3,7 @@
 #include <random>
 
 
-#define FULLSCREEENWINDOWPETER 
+//#define FULLSCREEENWINDOWPETER 
 
 sf::RectangleShape *shapes = new sf::RectangleShape[10000];
 
@@ -35,12 +35,10 @@ int main() {
 #ifdef FULLSCREEENWINDOWPETER
 	sf::RenderWindow window(sf::VideoMode(2560, 1440), "Peter", sf::Style::Fullscreen);
 	sf::View view(sf::Vector2f(2560 / 2, 1440 / 2), sf::Vector2f(2560, 1440));
-	//window.setFramerateLimit(10);
-
 
 #else
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Peter", sf::Style::Close | sf::Style::Default);
-	window.setFramerateLimit(70);
+	window.setFramerateLimit(100);
 	sf::View view(sf::Vector2f(500, 500), sf::Vector2f(1000, 1000));
 
 #endif
@@ -50,6 +48,7 @@ int main() {
 	sf::CircleShape shape(50);
 	addRects(window);
 
+	shape.setPosition(sf::Vector2f(100, 100));
 
 	while (window.isOpen()) {
 		window.clear(clearcolor);
@@ -57,9 +56,9 @@ int main() {
 		for (int i = 0; i < 10000; i++) {
 			window.draw(shapes[i]);
 		}
+		window.draw(shape);
 
 		//shape.setPosition(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
-		shape.setPosition(sf::Vector2f(100, 100));
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) view.move(sf::Vector2f(-10, 0));
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) view.move(sf::Vector2f(10, 0));
@@ -69,7 +68,6 @@ int main() {
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) view.zoom(0.9);
 		window.setView(view);
 
-		window.draw(shape);
 
 		sf::Event ev;
 		while (window.pollEvent(ev)) {
