@@ -160,8 +160,8 @@
     <ClCompile Include="src\entities\Player.cpp" />
     <ClCompile Include="src\gamestates\GameStateManager.cpp" />
     <ClCompile Include="src\gamestates\MenuState.cpp" />
+    <ClCompile Include="src\levels\level.cpp" />
     <ClCompile Include="src\levels\tiles\Tile.cpp" />
-    <ClCompile Include="src\levels\tiles\TileMapReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\entities\player.h" />
@@ -170,7 +170,7 @@
     <ClInclude Include="src\gamestates\menustate.h" />
     <ClInclude Include="src\levels\level.h" />
     <ClInclude Include="src\levels\tiles\Tile.h" />
-    <ClInclude Include="src\levels\tiles\tilemapreader.h" />
+    <ClInclude Include="src\levels\tiles\walltile.h" />
     <ClInclude Include="src\utils\utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
