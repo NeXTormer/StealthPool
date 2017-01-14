@@ -160,6 +160,11 @@
     <ClCompile Include="src\entities\Player.cpp" />
     <ClCompile Include="src\gamestates\GameStateManager.cpp" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    <ClCompile Include="src\gamestates\MenuState.cpp" />
+    <ClCompile Include="src\levels\LevelOne.cpp" />
+>>>>>>> parent of 5a30aa4... Revert ""cannit instantiate abstract class" error"
 =======
     <ClCompile Include="src\gamestates\MenuState.cpp" />
     <ClCompile Include="src\levels\LevelOne.cpp" />
@@ -170,6 +175,11 @@
     <ClInclude Include="src\gamestates\gamestate.h" />
     <ClInclude Include="src\gamestates\gamestatemanager.h" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    <ClInclude Include="src\gamestates\menustate.h" />
+    <ClInclude Include="src\levels\levelone.h" />
+>>>>>>> parent of 5a30aa4... Revert ""cannit instantiate abstract class" error"
 =======
     <ClInclude Include="src\gamestates\menustate.h" />
     <ClInclude Include="src\levels\levelone.h" />
