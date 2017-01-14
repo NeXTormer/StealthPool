@@ -29,14 +29,14 @@ int main() {
 	shape.setPosition(sf::Vector2f(100, 100));
 
 	GameStateManager gsm;
-	MenuState menustate;// gsm);
+	MenuState menustate(gsm);
 
 
 	while (window.isOpen()) {
 		window.clear(clearcolor);
 		
 		menustate.update(0.01);
-		menustate.draw();
+		menustate.draw(window);
 
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) view.move(sf::Vector2f(-10, 0));

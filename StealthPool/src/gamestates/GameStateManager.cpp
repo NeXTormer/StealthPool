@@ -8,17 +8,17 @@ GameStateManager::~GameStateManager()
 {
 }
 
-void GameStateManager::draw() 
+void GameStateManager::draw(sf::RenderWindow &window) 
 {
-	gamestates.top().draw();
+	gamestates.top()->draw(window);
 }
 
 void GameStateManager::update(const float &delta) 
 {
-	gamestates.top().update(delta);
+	gamestates.top()->update(delta);
 }
 
-void GameStateManager::push(const GameState &gamestate)
+void GameStateManager::push(GameState *gamestate)
 {
 	gamestates.push(gamestate);
 }

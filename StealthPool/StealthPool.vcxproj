@@ -159,36 +159,16 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\entities\Player.cpp" />
     <ClCompile Include="src\gamestates\GameStateManager.cpp" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     <ClCompile Include="src\gamestates\MenuState.cpp" />
     <ClCompile Include="src\levels\LevelOne.cpp" />
->>>>>>> parent of 5a30aa4... Revert ""cannit instantiate abstract class" error"
-=======
-    <ClCompile Include="src\gamestates\MenuState.cpp" />
-    <ClCompile Include="src\levels\LevelOne.cpp" />
->>>>>>> parent of 5a30aa4... Revert ""cannit instantiate abstract class" error"
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\entities\player.h" />
     <ClInclude Include="src\gamestates\gamestate.h" />
     <ClInclude Include="src\gamestates\gamestatemanager.h" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     <ClInclude Include="src\gamestates\menustate.h" />
     <ClInclude Include="src\levels\levelone.h" />
->>>>>>> parent of 5a30aa4... Revert ""cannit instantiate abstract class" error"
-=======
-    <ClInclude Include="src\gamestates\menustate.h" />
-    <ClInclude Include="src\levels\levelone.h" />
->>>>>>> parent of 5a30aa4... Revert ""cannit instantiate abstract class" error"
     <ClInclude Include="src\utils\utils.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
