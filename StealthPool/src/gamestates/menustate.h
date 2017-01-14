@@ -16,5 +16,5 @@ private:
 
 	sf::Texture playBtnTexture;
 
-	//GameStateManager &gamestatemanager;
+	GameStateManager &gamestatemanager;
 };

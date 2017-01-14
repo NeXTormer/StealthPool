@@ -19,7 +19,7 @@ int main() {
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Peter", sf::Style::Close | sf::Style::Default);
 	window.setFramerateLimit(100);
 	sf::View view(sf::Vector2f(500, 500), sf::Vector2f(1000, 1000));
-
+	
 #endif
 	sf::Color clearcolor(0x3A40f5);
 	sf::Clock clock;
