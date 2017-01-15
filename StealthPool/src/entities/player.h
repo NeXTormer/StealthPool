@@ -6,7 +6,7 @@
 class Player 
 {
 public:
-	sf::Vector2f pos;
+	sf::Vector2f position;
 	int radius = 16;
 
 	Player(sf::RenderWindow &window, sf::Vector2f pos);

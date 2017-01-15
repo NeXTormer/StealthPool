@@ -28,7 +28,7 @@ int main() {
 	sf::Clock clock;
 	sf::Time time;
 	
-	sf::RectangleShape testshape();
+	sf::RectangleShape testshape;
 	testshape.setPosition(200, 200);
 	testshape.setSize(sf::Vector2f(16, 16));
 
@@ -72,7 +72,7 @@ int main() {
 		player.draw();
 
 		playstate.draw(window);
-
+		window.draw(testshape);
 		window.display();
 
 		//fps calculation

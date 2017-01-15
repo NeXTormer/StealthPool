@@ -1,7 +1,7 @@
 #include "player.h"
 
-Player::Player(sf::RenderWindow &window, sf::Vector2f pos)
-	: window(window), pos(pos)
+Player::Player(sf::RenderWindow &rwindow, sf::Vector2f pos)
+	: window(rwindow), position(pos)
 {
 	playertexture.loadFromFile("res/playertexture.png");
 	sprite.setTexture(playertexture);
@@ -14,13 +14,13 @@ Player::~Player()
 
 void Player::update(const float &delta)
 {
-	pos += velocity;
+	position += velocity;
 
 }
 
 void Player::draw()
 {
-	sprite.setPosition(pos);
+	sprite.setPosition(position);
 	window.draw(sprite);
 }
 
