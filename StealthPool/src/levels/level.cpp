@@ -2,8 +2,8 @@
 
 Level::Level()
 {
-	walltexture.loadFromFile("res/walltexture.png");
-	floortexture.loadFromFile("res/floortexture.png");
+	walltexture.loadFromFile("res/wall.png");
+	floortexture.loadFromFile("res/floor.png");
 	nulltexture.loadFromFile("res/nulltexture.png");
 }
 
@@ -24,6 +24,7 @@ void Level::loadFromTilemap(std::string path)
 		{
 			color = tilemap.getPixel(x, y);
 			unsigned int hcolor = color.toInteger();
+			std::cout << hcolor << std::endl;
 			if (hcolor == 0x00FFFFFF) {
 				tiles[y * 64 + x] = new Tile(walltexture, x * 32, y * 32);
 			}
@@ -33,6 +34,7 @@ void Level::loadFromTilemap(std::string path)
 			else {
 				tiles[y * 64 + x] = new Tile(nulltexture, x * 32, y * 32);
 			}
+
 		}
 	}
 

@@ -11,7 +11,7 @@
 int main() {
 
 //Create Window
-#if 0
+#if 1
 	sf::RenderWindow window(sf::VideoMode(2560, 1440), "Peter", sf::Style::Fullscreen);
 	sf::View view(sf::Vector2f(2560 / 2, 1440 / 2), sf::Vector2f(2560, 1440));
 
