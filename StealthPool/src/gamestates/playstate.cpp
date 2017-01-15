@@ -13,7 +13,7 @@ PlayState::PlayState(const int lvlnr)
 
 PlayState::~PlayState()
 {
-	level.~Level();
+
 }
 
 void PlayState::update(const float & delta)

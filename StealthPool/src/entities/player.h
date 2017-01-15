@@ -6,8 +6,9 @@
 class Player 
 {
 public:
-	sf::Vector2f position;
-	int radius = 16;
+	sf::Vector2f position; //middle of the ball
+	const int radius = 16;
+	const int randiussquared = radius * radius;
 
 	Player(sf::RenderWindow &window, sf::Vector2f pos);
 	~Player();
@@ -30,6 +31,7 @@ private:
 	sf::Vector2f end;
 
 	bool started;
+	bool pressedOutOfBounds = false; //true when the screen has been clicked, but not on the ball
 
 };
 

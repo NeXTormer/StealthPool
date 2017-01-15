@@ -28,10 +28,6 @@ int main() {
 	sf::Clock clock;
 	sf::Time time;
 	
-	sf::RectangleShape testshape;
-	testshape.setPosition(200, 200);
-	testshape.setSize(sf::Vector2f(16, 16));
-
 
 	Player player(window, sf::Vector2f(200, 200));
 	GameStateManager gsm;
@@ -45,17 +41,16 @@ int main() {
 			case sf::Event::Closed:
 				window.close();
 				return 0;
-				break;
 			case sf::Event::Resized:
 				printf("width: %i, height %i \n", ev.size.width, ev.size.height);
 				
 				window.setSize(sf::Vector2u(ev.size.width, ev.size.height));
 				break;
 			case sf::Event::MouseButtonPressed:
-				//TODO: handle player input
+				player.mousePressed(ev);
 				break;
 			case sf::Event::MouseButtonReleased:
-
+				player.mouseReleased(ev);
 				break;
 			}
 		}
@@ -69,10 +64,9 @@ int main() {
 		window.setView(view);
 		//update & render
 		player.update(10);
-		player.draw();
 
 		playstate.draw(window);
-		window.draw(testshape);
+		player.draw();
 		window.display();
 
 		//fps calculation
