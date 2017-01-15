@@ -1,0 +1,5 @@
+Object: r, g, b | 0xRRGGBBAA
+
+Wall: 0, 255, 255 | 0x00FFFFFF
+Floor: 64, 64, 64 | 0x404040FF
+

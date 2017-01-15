@@ -14,4 +14,8 @@ public:
 	int size = 32;
 private:
 	sf::Sprite sprite;
+
+private:
+	static sf::Texture wallTexture;
+	static sf::Texture floorTexture;
 };

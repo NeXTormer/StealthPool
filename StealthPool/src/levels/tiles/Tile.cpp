@@ -1,5 +1,6 @@
 #include "Tile.h"
 
+
 Tile::Tile(sf::Texture &tex, int x, int y)
 {
 	pos.x = x;

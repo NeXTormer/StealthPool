@@ -160,6 +160,7 @@
     <ClCompile Include="src\entities\Player.cpp" />
     <ClCompile Include="src\gamestates\GameStateManager.cpp" />
     <ClCompile Include="src\gamestates\MenuState.cpp" />
+    <ClCompile Include="src\gamestates\playstate.cpp" />
     <ClCompile Include="src\levels\level.cpp" />
     <ClCompile Include="src\levels\tiles\Tile.cpp" />
   </ItemGroup>
@@ -168,10 +169,20 @@
     <ClInclude Include="src\gamestates\gamestate.h" />
     <ClInclude Include="src\gamestates\gamestatemanager.h" />
     <ClInclude Include="src\gamestates\menustate.h" />
+    <ClInclude Include="src\gamestates\playstate.h" />
     <ClInclude Include="src\levels\level.h" />
     <ClInclude Include="src\levels\tiles\Tile.h" />
-    <ClInclude Include="src\levels\tiles\walltile.h" />
     <ClInclude Include="src\utils\utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\floor.png" />
+    <Image Include="res\levels\level1.png" />
+    <Image Include="res\menubackground.png" />
+    <Image Include="res\nulltexture.png" />
+    <Image Include="res\wall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="res\levels\LevelConventions.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
