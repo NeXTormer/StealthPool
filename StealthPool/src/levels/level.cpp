@@ -24,7 +24,6 @@ void Level::loadFromTilemap(std::string path)
 		{
 			color = tilemap.getPixel(x, y);
 			unsigned int hcolor = color.toInteger();
-			std::cout << hcolor << std::endl;
 			if (hcolor == 0x00FFFFFF) {
 				tiles[y * 64 + x] = new Tile(walltexture, x * 32, y * 32);
 			}

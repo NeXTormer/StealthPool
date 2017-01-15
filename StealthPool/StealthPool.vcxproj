@@ -179,6 +179,7 @@
     <Image Include="res\levels\level1.png" />
     <Image Include="res\menubackground.png" />
     <Image Include="res\nulltexture.png" />
+    <Image Include="res\playertexture.png" />
     <Image Include="res\wall.png" />
   </ItemGroup>
   <ItemGroup>

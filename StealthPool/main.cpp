@@ -5,13 +5,14 @@
 #include "src\utils\utils.h"
 #include "src\gamestates\gamestatemanager.h"
 #include "src\gamestates\menustate.h"
-#include "src/gamestates/playstate.h"
+#include "src\gamestates\playstate.h"
+#include "src\entities\player.h"
 
 
 int main() {
 
-//Create Window
-#if 1
+	//Create Window
+#if 0
 	sf::RenderWindow window(sf::VideoMode(2560, 1440), "Peter", sf::Style::Fullscreen);
 	sf::View view(sf::Vector2f(2560 / 2, 1440 / 2), sf::Vector2f(2560, 1440));
 
@@ -27,26 +28,17 @@ int main() {
 	sf::Clock clock;
 	sf::Time time;
 	
-	GameStateManager gsm;
+	sf::RectangleShape testshape();
+	testshape.setPosition(200, 200);
+	testshape.setSize(sf::Vector2f(16, 16));
 
+
+	Player player(window, sf::Vector2f(200, 200));
+	GameStateManager gsm;
 	PlayState playstate(1);
 
 	while (window.isOpen()) {
-		window.clear(clearcolor);
-
-		//move camera
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) view.move(sf::Vector2f(-10, 0));
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) view.move(sf::Vector2f(10, 0));
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) view.move(sf::Vector2f(0, 10));
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) view.move(sf::Vector2f(0, -10));
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) view.zoom(1.1);
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) view.zoom(0.9);
-		window.setView(view);
-		//update & render
-
-		playstate.draw(window);
-
-		//events
+		//Window and Mouseevents
 		sf::Event ev;
 		while (window.pollEvent(ev)) {
 			switch (ev.type) {
@@ -59,8 +51,28 @@ int main() {
 				
 				window.setSize(sf::Vector2u(ev.size.width, ev.size.height));
 				break;
+			case sf::Event::MouseButtonPressed:
+				//TODO: handle player input
+				break;
+			case sf::Event::MouseButtonReleased:
+
+				break;
 			}
 		}
+		window.clear(clearcolor);
+
+		//move camera
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) view.move(sf::Vector2f(-10, 0));
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) view.move(sf::Vector2f(10, 0));
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) view.move(sf::Vector2f(0, 10));
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) view.move(sf::Vector2f(0, -10));
+		window.setView(view);
+		//update & render
+		player.update(10);
+		player.draw();
+
+		playstate.draw(window);
+
 		window.display();
 
 		//fps calculation
