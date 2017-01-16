@@ -27,13 +27,14 @@ private:
 	sf::Sprite sprite;
 	sf::RenderWindow &window;
 
+
+	//vars for ballcontrol
+	bool started = false; //true when mouse button is down
+
+
 	sf::Vector2f velocity;
-	sf::Vector2f drag;
 	sf::Vector2f start;
 	sf::Vector2f end;
-
-	bool started;
-	bool pressedOutOfBounds = false; //true when the screen has been clicked, but not on the ball
-	bool firstClick = true;
+	sf::Vector2f drag;
 };
 

@@ -3,7 +3,7 @@
 
 #include <math.h>
 
-sf::Vector2f convert_screenspace_to_worldspace(const sf::View &view, sf::Vector2i screenSpaceCoordinates)
+sf::Vector2f convert_screenspace_to_worldspace(const sf::View &view, sf::Vector2f screenSpaceCoordinates)
 {
 	int diffx = view.getCenter().x - view.getSize().x * 0.5f;
 	int diffy = view.getCenter().y - view.getSize().y * 0.5f;
@@ -27,8 +27,6 @@ Player::~Player()
 
 void Player::update(const float &delta)
 {
-	std::cout << convert_screenspace_to_worldspace(window.getView(), sf::Mouse::getPosition()).x << std::endl;
-
 	handleInput();
 
 	//implement drag
@@ -53,58 +51,27 @@ void Player::handleInput()
 	if (!started)
 	{
 		velocity = start - end;
-		velocity *= 0.02f;
+		velocity.x *= 0.02f;
+		velocity.y *= 0.02f;
 	}
 }
 
 void Player::mousePressed(sf::Event &ev) 
 {
-	if (firstClick)
-	{
-		start = position;
-		end = position;
-	}
-	//std::cout << "mousepos: " << x << ", " << y << std::endl;
-	//std::cout << "diff: " << x - position.x << ", " << y - position.y << std::endl;
-		//std::cout << diffx << ", " << diffy << std::endl; //ball moves with this line, but not without it
-	int x = ev.mouseButton.x;
-	int y = ev.mouseButton.y;
-	int diffx = std::abs(x - position.x);
-	int diffy = std::abs(y - position.y);
-	if((diffx <= 16) && (diffy <= 16))
+	sf::Vector2f mouseWorldSpace = convert_screenspace_to_worldspace(window.getView(), sf::Vector2f(ev.mouseButton.x, ev.mouseButton.y));
+	int diffx = std::abs(mouseWorldSpace.x - position.x);
+	int diffy = std::abs(mouseWorldSpace.y - position.y);
+	if ((diffx <= 16) && (diffy <= 16))
 	{
 		started = true;
-		pressedOutOfBounds = false;
-		start.x = x;
-		start.y = y;
-	}
-	else
-	{
-		pressedOutOfBounds = true;
+		start.x = ev.mouseButton.x;
+		start.y = ev.mouseButton.y;
+
 	}
 }
 
 void Player::mouseReleased(sf::Event &ev)
 {
-	if (firstClick)
-	{
-		start = position;
-		end = position;
-		//TODO: optimize
-		int x = ev.mouseButton.x;
-		int y = ev.mouseButton.y;
-		int diffx = std::abs(x - position.x);
-		int diffy = std::abs(y - position.y);
-		if ((diffx <= 16) && (diffy <= 16))
-		{
-			firstClick = false;
-		}
-		else 
-		{
-			firstClick = false;
-			return;
-		}
-	}
 	if (started)
 	{
 		end.x = ev.mouseButton.x;
