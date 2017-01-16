@@ -2,7 +2,13 @@
 
 
 #include <math.h>
-#include "../utils/utils.h"
+
+sf::Vector2f convert_screenspace_to_worldspace(const sf::View &view, sf::Vector2i screenSpaceCoordinates)
+{
+	int diffx = view.getCenter().x - view.getSize().x * 0.5f;
+	int diffy = view.getCenter().y - view.getSize().y * 0.5f;
+	return sf::Vector2f(screenSpaceCoordinates.x + diffx, screenSpaceCoordinates.y + diffy);
+}
 
 
 Player::Player(sf::RenderWindow &rwindow, sf::Vector2f pos)

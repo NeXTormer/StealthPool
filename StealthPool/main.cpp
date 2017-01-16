@@ -2,7 +2,6 @@
 #include <SFML/Graphics.hpp>
 #include <random>
 
-#include "src\utils\utils.h"
 #include "src\gamestates\gamestatemanager.h"
 #include "src\gamestates\menustate.h"
 #include "src\gamestates\playstate.h"

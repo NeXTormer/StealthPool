@@ -176,7 +176,7 @@
     <ClInclude Include="src\gamestates\playstate.h" />
     <ClInclude Include="src\levels\level.h" />
     <ClInclude Include="src\levels\tiles\Tile.h" />
-    <ClInclude Include="src\utils\utils.h" />
+    <ClInclude Include="src\utils\random.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\floor.png" />
