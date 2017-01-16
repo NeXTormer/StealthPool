@@ -8,13 +8,20 @@
 class PlayState : public GameState
 {
 public:
-	PlayState(int lvlnr);
+	PlayState(sf::RenderWindow &window, int lvlnr);
 	~PlayState();
 
 	void update(const float &delta) override;
-	void draw(sf::RenderWindow &window) override;
+	void draw() override;
+	void mousePressed(sf::Event &ev);
+	void mouseReleased(sf::Event &ev);
+
+
+	Player player;
+
 
 private:
 	Level level;
+	sf::RenderWindow &window;
 
 };

@@ -19,9 +19,9 @@ public:
 
 	void mousePressed(sf::Event &ev);
 	void mouseReleased(sf::Event &ev);
+	//TODO: implement collision response methods (ie. void collision(direction))
 
 private:
-	void handleInput();
 
 	sf::Texture playertexture;
 	sf::Sprite sprite;
@@ -30,11 +30,13 @@ private:
 
 	//vars for ballcontrol
 	bool started = false; //true when mouse button is down
+	bool movement = false;
+	bool first = true;
 
+	float drag = 10; //10 for 40 fps and no velocity reduction in mousereleased
 
 	sf::Vector2f velocity;
 	sf::Vector2f start;
 	sf::Vector2f end;
-	sf::Vector2f drag;
 };
 

@@ -167,6 +167,7 @@
     <ClCompile Include="src\gamestates\playstate.cpp" />
     <ClCompile Include="src\levels\level.cpp" />
     <ClCompile Include="src\levels\tiles\Tile.cpp" />
+    <ClCompile Include="src\utils\Collision.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\entities\player.h" />
@@ -176,6 +177,7 @@
     <ClInclude Include="src\gamestates\playstate.h" />
     <ClInclude Include="src\levels\level.h" />
     <ClInclude Include="src\levels\tiles\Tile.h" />
+    <ClInclude Include="src\utils\Collision.h" />
     <ClInclude Include="src\utils\random.h" />
   </ItemGroup>
   <ItemGroup>

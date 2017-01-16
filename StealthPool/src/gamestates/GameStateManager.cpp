@@ -10,7 +10,7 @@ GameStateManager::~GameStateManager()
 
 void GameStateManager::draw(sf::RenderWindow &window) 
 {
-	gamestates.top()->draw(window);
+	gamestates.top()->draw();
 }
 
 void GameStateManager::update(const float &delta) 

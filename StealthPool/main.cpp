@@ -28,9 +28,8 @@ int main() {
 	sf::Time time;
 	
 
-	Player player(window, sf::Vector2f(200, 200));
 	GameStateManager gsm;
-	PlayState playstate(1);
+	PlayState playstate(window, 1);
 
 	while (window.isOpen()) {
 		//Window and Mouseevents
@@ -47,10 +46,10 @@ int main() {
 				window.setSize(sf::Vector2u(ev.size.width, ev.size.height));
 				break;
 			case sf::Event::MouseButtonPressed:
-				player.mousePressed(ev);
+				playstate.mousePressed(ev);
 				break;
 			case sf::Event::MouseButtonReleased:
-				player.mouseReleased(ev);
+				playstate.mouseReleased(ev);
 				break;
 			}
 		}
@@ -65,10 +64,8 @@ int main() {
 		window.setView(view);
 #endif
 		//update & render
-		player.update(10);
-
-		playstate.draw(window);
-		player.draw();
+		playstate.draw();
+		playstate.update(10);
 		window.display();
 
 		//fps calculation
@@ -79,6 +76,8 @@ int main() {
 	}
 
 	window.close();
+
+
 	
 
 }

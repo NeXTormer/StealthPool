@@ -4,11 +4,11 @@
 class MenuState : virtual public GameState
 {
 public:
-	MenuState(GameStateManager &gamestatemanager);
+	MenuState(sf::RenderWindow &window, GameStateManager &gamestatemanager);
 	~MenuState();
 
 	void update(const float &delta) override;
-	void draw(sf::RenderWindow &window) override;
+	void draw() override;
 
 private:
 	sf::Texture menuBackgroundTexture;
@@ -17,4 +17,5 @@ private:
 	sf::Texture playBtnTexture;
 
 	GameStateManager &gamestatemanager;
+	sf::RenderWindow &window;
 };

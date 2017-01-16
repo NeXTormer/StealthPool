@@ -14,7 +14,9 @@ public:
 
 	void loadFromTilemap(std::string path);
 	void draw(sf::RenderWindow &window);
+	void update(const float &delta);
 private:
+	std::vector<sf::IntRect> collisionTiles;
 	Tile *tiles[64 * 64];
 
 	sf::Texture walltexture;
