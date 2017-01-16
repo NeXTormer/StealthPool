@@ -41,6 +41,7 @@ int main() {
 			case sf::Event::Closed:
 				window.close();
 				return 0;
+				break;
 			case sf::Event::Resized:
 				printf("width: %i, height %i \n", ev.size.width, ev.size.height);
 				
@@ -56,12 +57,14 @@ int main() {
 		}
 		window.clear(clearcolor);
 
+#if 1
 		//move camera
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) view.move(sf::Vector2f(-10, 0));
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) view.move(sf::Vector2f(10, 0));
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) view.move(sf::Vector2f(0, 10));
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) view.move(sf::Vector2f(0, -10));
 		window.setView(view);
+#endif
 		//update & render
 		player.update(10);
 

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+
 class Player 
 {
 public:
@@ -18,6 +19,7 @@ public:
 
 	void mousePressed(sf::Event &ev);
 	void mouseReleased(sf::Event &ev);
+
 private:
 	void handleInput();
 
@@ -32,6 +34,6 @@ private:
 
 	bool started;
 	bool pressedOutOfBounds = false; //true when the screen has been clicked, but not on the ball
-
+	bool firstClick = true;
 };
 
