@@ -39,7 +39,7 @@ private:
 	sf::Vector2f cartesianToPolar(const sf::Vector2f cartesian);
 	sf::Vector2f polarToCartesian(const sf::Vector2f cartesian);
 
-	float drag = 0.999;
+	float drag = 0.99;
 
 	sf::Vector2f velocity;
 	sf::Vector2f start;

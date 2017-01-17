@@ -33,22 +33,10 @@ void Player::update(const float &delta)
 	
 	//calculate drag
 
-	if (std::abs(velocity.x) < 0.1) 
-	{
-		velocity.x = 0;
-	}
-	else
-	{
-		velocity.x *= drag;
-	}
-	if (std::abs(velocity.y) < 0.1)
-	{
-		velocity.y = 0;
-	}
-	else 
-	{
-		velocity.y *= drag;
-	}
+	velocity.x *= drag;
+	velocity.y *= drag;
+	
+
 
 	position += velocity;
 	//collision
