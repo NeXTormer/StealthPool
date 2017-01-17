@@ -11,7 +11,7 @@ public:
 	const int radius = 16;
 	const int randiussquared = radius * radius;
 
-	Player(sf::RenderWindow &window, sf::Vector2f pos);
+	Player(sf::RenderWindow &window, sf::Vector2f pos, std::vector<sf::IntRect> &cTiles);
 	~Player();
 
 	void update(const float &delta);
@@ -26,6 +26,9 @@ private:
 	sf::Texture playertexture;
 	sf::Sprite sprite;
 	sf::RenderWindow &window;
+	sf::IntRect collisionbox;
+
+	std::vector<sf::IntRect> &collisionTiles;
 
 
 	//vars for ballcontrol

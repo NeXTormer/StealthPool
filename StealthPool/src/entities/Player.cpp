@@ -1,5 +1,5 @@
 #include "player.h"
-
+#include "../levels/level.h"
 
 #include <math.h>
 
@@ -11,8 +11,8 @@ sf::Vector2f convert_screenspace_to_worldspace(const sf::View &view, sf::Vector2
 }
 
 
-Player::Player(sf::RenderWindow &rwindow, sf::Vector2f pos)
-	: window(rwindow), position(pos)
+Player::Player(sf::RenderWindow &rwindow, sf::Vector2f pos, std::vector<sf::IntRect> &cTiles)
+	: window(rwindow), position(pos), collisionTiles(cTiles)
 {
 	playertexture.loadFromFile("res/playertexture.png");
 	sprite.setTexture(playertexture);
@@ -26,6 +26,18 @@ Player::~Player()
 
 void Player::update(const float &delta)
 {
+	for (sf::IntRect r : collisionTiles)
+	{
+		if (r.intersects(sf::IntRect(sf::Vector2i(position.x, position.y), sf::Vector2i(32, 32))))
+		{
+			//TODO: collision response
+			std::cout << "ddd" << position.x << std::endl;
+		}
+
+	}
+
+
+
 	/* // redo friction
 	if ((velocity.x < drag) && (velocity.x > -drag))
 	{

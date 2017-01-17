@@ -17,7 +17,7 @@ public:
 	void mouseReleased(sf::Event &ev);
 
 
-	Player player;
+	Player *player;
 
 
 private:
