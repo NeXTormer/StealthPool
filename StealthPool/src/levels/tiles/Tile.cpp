@@ -24,7 +24,7 @@ Tile::Tile()
 	collide = false;
 }
 
-void Tile::draw(sf::RenderWindow &window)
+void Tile::draw(sf::RenderWindow &window, sf::Shader &shader)
 {
-	window.draw(sprite);
+	window.draw(sprite, shader);
 }

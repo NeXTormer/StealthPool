@@ -14,7 +14,7 @@ public:
 	~Level();
 
 	void loadFromTilemap(std::string path);
-	void draw(sf::RenderWindow &window);
+	void draw(sf::RenderWindow &window, sf::Shader &shader);
 	void update(const float &delta);
 	std::vector<sf::IntRect> collisionTiles;
 	std::vector<Guard> guards;

@@ -11,6 +11,8 @@ PlayState::PlayState(sf::RenderWindow &rwindow, int lvlnr)
 	std::string suff = ".png";
 	level.loadFromTilemap(pre + nr + suff);
 	player = new Player(rwindow, sf::Vector2f(300, 400), level.collisionTiles, level.guards);
+	staticshader.loadFromFile("res/shader/staticshader.vert", "res/shader/staticshader.frag");
+
 }
 
 void PlayState::mousePressed(sf::Event &ev)
@@ -36,6 +38,6 @@ void PlayState::update(const float &delta)
 
 void PlayState::draw()
 {
-	level.draw(window);
-	player->draw();
+	level.draw(window, staticshader);
+	player->draw(staticshader);
 }

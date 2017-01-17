@@ -64,11 +64,11 @@ void Player::update(const float &delta)
 
 }
 
-void Player::draw()
+void Player::draw(sf::Shader &shader)
 {
 	sf::Vector2f posw(position.x - radius, position.y - radius);
 	sprite.setPosition(posw);
-	window.draw(sprite);
+	window.draw(sprite, shader);
 }
 
 

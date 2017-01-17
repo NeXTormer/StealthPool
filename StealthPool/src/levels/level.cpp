@@ -13,15 +13,15 @@ Level::~Level()
 	delete[] tiles;
 }
 
-void Level::draw(sf::RenderWindow & window)
+void Level::draw(sf::RenderWindow & window, sf::Shader &shader)
 {
 	for (int i = 0; i < tilenumber; i++)
 	{
-		tiles[i]->draw(window);
+		tiles[i]->draw(window, shader);
 	}
 	for(Guard g : guards)
 	{
-		g.draw(window);
+		g.draw(window, shader);
 	}
 }
 

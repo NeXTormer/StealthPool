@@ -21,6 +21,8 @@ public:
 
 
 private:
+	const sf::Shader staticshader;
+
 	Level level;
 	sf::RenderWindow &window;
 
