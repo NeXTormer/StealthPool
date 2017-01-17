@@ -19,11 +19,18 @@ void Level::draw(sf::RenderWindow & window)
 	{
 		tiles[i]->draw(window);
 	}
+	for(Guard g : guards)
+	{
+		g.draw(window);
+	}
 }
 
 void Level::update(const float &delta)
 {
-	
+	for (Guard g : guards)
+	{
+		g.update();
+	}
 }
 
 void Level::loadFromTilemap(std::string path)
@@ -43,6 +50,10 @@ void Level::loadFromTilemap(std::string path)
 			}
 			else if (hcolor == 0x404040FF) {
 				tiles[y * 64 + x] = new Tile(floortexture, x * 32, y * 32, false);
+			}
+			else if (hcolor == 0x4CFF00FF) {
+				guards.push_back(Guard(sf::Vector2f(x * 32, y * 32))); //add a new guard to the vector
+				tiles[y * 64 + x] = new Tile();	//create a voidtile 'under' the guard
 			}
 			else if (hcolor == 0xFFFFFFFF) {
 				tiles[y * 64 + x] = new Tile(); //create new voidtile (will not be rendered, not included in collision detection)

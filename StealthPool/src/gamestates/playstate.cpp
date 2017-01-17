@@ -31,6 +31,7 @@ PlayState::~PlayState()
 void PlayState::update(const float &delta)
 {
 	player->update(delta);
+	level.update(delta);
 }
 
 void PlayState::draw()

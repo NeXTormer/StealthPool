@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "tiles\Tile.h"
+#include "../entities/guard.h"
 
 class Level
 {
@@ -16,6 +17,7 @@ public:
 	void draw(sf::RenderWindow &window);
 	void update(const float &delta);
 	std::vector<sf::IntRect> collisionTiles;
+	std::vector<Guard> guards;
 private:
 	Tile *tiles[64 * 64];
 

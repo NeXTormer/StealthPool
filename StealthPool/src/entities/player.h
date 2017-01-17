@@ -11,7 +11,7 @@ public:
 	const int radius = 16;
 	const int randiussquared = radius * radius;
 
-	Player(sf::RenderWindow &window, sf::Vector2f pos, std::vector<sf::IntRect> &cTiles);
+	Player(sf::RenderWindow &window, sf::Vector2f pos, std::vector<sf::IntRect> &cTiles, std::vector<Guard> gguards);
 	~Player();
 
 	void update(const float &delta);
@@ -19,7 +19,6 @@ public:
 
 	void mousePressed(sf::Event &ev);
 	void mouseReleased(sf::Event &ev);
-	//TODO: implement collision response methods (ie. void collision(direction))
 
 private:
 
@@ -31,7 +30,7 @@ private:
 	std::vector<sf::IntRect> &collisionTiles;
 
 
-	//vars for ballcontrol
+	//vars for movement with mouse
 	bool started = false; //true when mouse button is down
 	bool movement = false;
 	bool first = true;

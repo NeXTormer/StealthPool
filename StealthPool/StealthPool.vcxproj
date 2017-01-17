@@ -161,6 +161,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\entities\Guard.cpp" />
     <ClCompile Include="src\entities\Player.cpp" />
     <ClCompile Include="src\gamestates\GameStateManager.cpp" />
     <ClCompile Include="src\gamestates\MenuState.cpp" />
@@ -170,6 +171,7 @@
     <ClCompile Include="src\utils\Collision.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\entities\guard.h" />
     <ClInclude Include="src\entities\player.h" />
     <ClInclude Include="src\gamestates\gamestate.h" />
     <ClInclude Include="src\gamestates\gamestatemanager.h" />
@@ -182,6 +184,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\floor.png" />
+    <Image Include="res\guardtexture.png" />
     <Image Include="res\levels\level1.png" />
     <Image Include="res\menubackground.png" />
     <Image Include="res\nulltexture.png" />

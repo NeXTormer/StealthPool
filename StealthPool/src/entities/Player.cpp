@@ -11,8 +11,8 @@ sf::Vector2f convert_screenspace_to_worldspace(const sf::View &view, sf::Vector2
 }
 
 
-Player::Player(sf::RenderWindow &rwindow, sf::Vector2f pos, std::vector<sf::IntRect> &cTiles)
-	: window(rwindow), position(pos), collisionTiles(cTiles)
+Player::Player(sf::RenderWindow &rwindow, sf::Vector2f pos, std::vector<sf::IntRect> &cTiles, std::vector<Guard> gguards)
+	: window(rwindow), position(pos), collisionTiles(cTiles), guards(gguards)
 {
 	playertexture.loadFromFile("res/playertexture.png");
 	sprite.setTexture(playertexture);
