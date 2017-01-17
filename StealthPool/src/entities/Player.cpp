@@ -25,13 +25,30 @@ Player::~Player()
 }
 
 void Player::update(const float &delta)
-{
+{  
+	sf::Vector2f ppos = position;
+	position += velocity;
 	for (sf::IntRect r : collisionTiles)
 	{
-		if (r.intersects(sf::IntRect(sf::Vector2i(position.x, position.y), sf::Vector2i(32, 32))))
+		if (r.intersects(sf::IntRect(sf::Vector2i(position.x - radius, position.y - radius), sf::Vector2i(32, 32))))
 		{
-			//TODO: collision response
-			std::cout << "ddd" << position.x << std::endl;
+			//IDEA: calculate the difference btw the center of the cube and the center of the player and test if x or y is smaller
+			sf::Vector2f posCube(r.left + 16, r.top + 16);
+			int xdiff = std::abs(position.x - posCube.x);
+			int ydiff = std::abs(position.y - posCube.y);
+			if (xdiff > ydiff)
+			{
+				velocity.x = -velocity.x;
+			}
+			else
+			{
+				velocity.y = -velocity.y;
+			}
+
+			//collision response
+			
+			position = ppos;
+			
 		}
 
 	}
@@ -63,7 +80,6 @@ void Player::update(const float &delta)
 	
 	
 	
-	position += velocity;
 }
 
 void Player::draw()

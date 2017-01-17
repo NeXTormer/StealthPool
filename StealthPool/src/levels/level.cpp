@@ -10,7 +10,7 @@ Level::Level()
 
 Level::~Level()
 {
-	delete[] &tiles;
+	delete[] tiles;
 }
 
 void Level::draw(sf::RenderWindow & window)
@@ -54,17 +54,18 @@ void Level::loadFromTilemap(std::string path)
 		}
 	}
 
+
 	for (unsigned int y = 0; y < 64; y++)
 	{
 		for (unsigned int x = 0; x < 64; x++)
 		{
-			if (tiles[y * 64 + x]->collide) 
+			if (tiles[y * 64 + x]->collide)
 			{
 				collisionTiles.push_back(sf::IntRect(x * 32, y * 32, 32, 32));
 			}
 		}
 	}
-	
+
 
 
 }
