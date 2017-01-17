@@ -1,5 +1,5 @@
 #include "player.h"
-#include "../levels/level.h"
+
 
 #include <math.h>
 
@@ -11,8 +11,8 @@ sf::Vector2f convert_screenspace_to_worldspace(const sf::View &view, sf::Vector2
 }
 
 
-Player::Player(sf::RenderWindow &rwindow, Level &lvl, sf::Vector2f pos)
-	: window(rwindow), position(pos), level(lvl)
+Player::Player(sf::RenderWindow &rwindow, sf::Vector2f pos)
+	: window(rwindow), position(pos)
 {
 	playertexture.loadFromFile("res/playertexture.png");
 	sprite.setTexture(playertexture);

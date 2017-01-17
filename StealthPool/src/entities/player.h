@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "../levels/level.h"
 
 
 class Player 
@@ -12,7 +11,7 @@ public:
 	const int radius = 16;
 	const int randiussquared = radius * radius;
 
-	Player(sf::RenderWindow &window, Level &level, sf::Vector2f pos);
+	Player(sf::RenderWindow &window, sf::Vector2f pos);
 	~Player();
 
 	void update(const float &delta);
@@ -20,10 +19,10 @@ public:
 
 	void mousePressed(sf::Event &ev);
 	void mouseReleased(sf::Event &ev);
+	//TODO: implement collision response methods (ie. void collision(direction))
+
 private:
 
-	Level &level;
-	
 	sf::Texture playertexture;
 	sf::Sprite sprite;
 	sf::RenderWindow &window;

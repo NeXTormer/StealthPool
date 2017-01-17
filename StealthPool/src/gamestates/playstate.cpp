@@ -4,7 +4,7 @@
 #include <string>
 
 PlayState::PlayState(sf::RenderWindow &rwindow, int lvlnr)
-	: player(rwindow, level, sf::Vector2f(300, 300)), window(rwindow)
+	: player(rwindow, sf::Vector2f()), window(rwindow)
 {
 	std::string pre = "res/levels/level";
 	std::string nr = std::to_string(lvlnr);

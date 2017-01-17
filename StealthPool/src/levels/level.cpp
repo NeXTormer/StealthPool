@@ -10,7 +10,7 @@ Level::Level()
 
 Level::~Level()
 {
-	delete[] &tiles;
+	delete[] tiles;
 }
 
 void Level::draw(sf::RenderWindow & window)
@@ -25,12 +25,6 @@ void Level::update(const float &delta)
 {
 	
 }
-
-std::vector<sf::IntRect>& Level::getCollisionTiles()
-{
-	return collisionTiles;
-}
-
 
 void Level::loadFromTilemap(std::string path)
 {
