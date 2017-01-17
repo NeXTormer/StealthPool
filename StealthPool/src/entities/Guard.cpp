@@ -14,7 +14,7 @@ Guard::Guard(sf::Vector2f pos)
 	dead = false;
 }
 
-void Guard::draw(sf::RenderWindow &window)
+void Guard::draw(sf::RenderWindow &window, sf::Shader &shader)
 {
 	if (dead)
 	{
@@ -26,7 +26,7 @@ void Guard::draw(sf::RenderWindow &window)
 	}
 
 	sprite.setPosition(position);
-	window.draw(sprite);
+	window.draw(sprite, &shader);
 }
 
 void Guard::die()
