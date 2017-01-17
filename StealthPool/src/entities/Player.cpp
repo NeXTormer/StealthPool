@@ -24,62 +24,46 @@ Player::~Player()
 {
 }
 
+//rect.left = x
+//rect.top = y
+
 void Player::update(const float &delta)
 {  
 	sf::Vector2f ppos = position;
-	position += velocity;
-	for (sf::IntRect r : collisionTiles)
-	{
-		if (r.intersects(sf::IntRect(sf::Vector2i(position.x - radius, position.y - radius), sf::Vector2i(32, 32))))
-		{
-			//IDEA: calculate the difference btw the center of the cube and the center of the player and test if x or y is smaller
-			sf::Vector2f posCube(r.left + 16, r.top + 16);
-			int xdiff = std::abs(position.x - posCube.x);
-			int ydiff = std::abs(position.y - posCube.y);
-			if (xdiff > ydiff)
-			{
-				velocity.x = -velocity.x;
-			}
-			else
-			{
-				velocity.y = -velocity.y;
-			}
+	
+	//calculate drag
 
-			//collision response
-			
-			position = ppos;
-			
-		}
-
-	}
-
-
-
-	/* // redo friction
-	if ((velocity.x < drag) && (velocity.x > -drag))
+	if (std::abs(velocity.x) < 0.1) 
 	{
 		velocity.x = 0;
 	}
-	else 
+	else
 	{
-		if(velocity.x > 0) velocity.x -= drag;
-		else velocity.x += drag;
+		velocity.x *= drag;
 	}
-	if ((velocity.y < drag) && (velocity.y > -drag))
+	if (std::abs(velocity.y) < 0.1)
 	{
 		velocity.y = 0;
 	}
-	else
+	else 
 	{
-		if (velocity.y > 0) velocity.y -= drag;
-		else velocity.y += drag;
+		velocity.y *= drag;
 	}
-	*/
-	
-	
-	
-	
-	
+
+	position += velocity;
+	//collision
+	for (sf::IntRect r : collisionTiles)
+	{
+		sf::Vector2i ballPos(position.x - radius, position.y - radius);
+		sf::Vector2i ballSize(32, 32);
+		if (r.intersects(sf::IntRect(ballPos, ballSize)))
+		{
+			//IDEA: calculate the difference btw the center of the cube and the center of the player and test if x or y is smaller
+			position = ppos;
+		}
+
+	}	
+
 }
 
 void Player::draw()
@@ -116,4 +100,14 @@ void Player::mouseReleased(sf::Event &ev)
 		velocity.y *= 0.02f;
 		started = false;
 	}
+}
+
+sf::Vector2f Player::cartesianToPolar(const sf::Vector2f cartesian)
+{
+	return sf::Vector2f(std::sqrt(cartesian.x * cartesian.x + cartesian.y * cartesian.y), std::atan(cartesian.y / cartesian.x));
+}
+
+sf::Vector2f Player::polarToCartesian(const sf::Vector2f polar)
+{
+	return sf::Vector2f(polar.x * std::cos(polar.y), polar.x * std::sin(polar.y));
 }

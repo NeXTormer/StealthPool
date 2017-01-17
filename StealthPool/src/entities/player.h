@@ -36,7 +36,10 @@ private:
 	bool movement = false;
 	bool first = true;
 
-	float drag = 10; //10 for 40 fps and no velocity reduction in mousereleased
+	sf::Vector2f cartesianToPolar(const sf::Vector2f cartesian);
+	sf::Vector2f polarToCartesian(const sf::Vector2f cartesian);
+
+	float drag = 0.999;
 
 	sf::Vector2f velocity;
 	sf::Vector2f start;

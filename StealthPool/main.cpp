@@ -9,7 +9,6 @@
 
 
 int main() {
-
 	//Create Window
 #if 0
 	sf::RenderWindow window(sf::VideoMode(2560, 1440), "Peter", sf::Style::Fullscreen);
