@@ -10,7 +10,7 @@ PlayState::PlayState(sf::RenderWindow &rwindow, int lvlnr)
 	std::string nr = std::to_string(lvlnr);
 	std::string suff = ".png";
 	level.loadFromTilemap(pre + nr + suff);
-	player = new Player(rwindow, sf::Vector2f(300, 400), level.collisionTiles);
+	player = new Player(rwindow, sf::Vector2f(300, 400), level.collisionTiles, level.guards);
 }
 
 void PlayState::mousePressed(sf::Event &ev)

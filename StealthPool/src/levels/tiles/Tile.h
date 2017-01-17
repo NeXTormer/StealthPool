@@ -19,7 +19,4 @@ public:
 private:
 	sf::Sprite sprite;
 
-private:
-	static sf::Texture wallTexture;
-	static sf::Texture floorTexture;
 };

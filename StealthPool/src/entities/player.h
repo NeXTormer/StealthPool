@@ -3,6 +3,8 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+#include "guard.h"
+
 
 class Player 
 {
@@ -11,7 +13,7 @@ public:
 	const int radius = 16;
 	const int randiussquared = radius * radius;
 
-	Player(sf::RenderWindow &window, sf::Vector2f pos, std::vector<sf::IntRect> &cTiles, std::vector<Guard> gguards);
+	Player(sf::RenderWindow &window, sf::Vector2f pos, std::vector<sf::IntRect> &cTiles, std::vector<Guard> &gguards);
 	~Player();
 
 	void update(const float &delta);
@@ -28,6 +30,7 @@ private:
 	sf::IntRect collisionbox;
 
 	std::vector<sf::IntRect> &collisionTiles;
+	std::vector<Guard> &guards;
 
 
 	//vars for movement with mouse

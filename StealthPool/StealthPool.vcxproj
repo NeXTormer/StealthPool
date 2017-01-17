@@ -185,6 +185,7 @@
   <ItemGroup>
     <Image Include="res\floor.png" />
     <Image Include="res\guardtexture.png" />
+    <Image Include="res\guardtexture2.png" />
     <Image Include="res\levels\level1.png" />
     <Image Include="res\menubackground.png" />
     <Image Include="res\nulltexture.png" />

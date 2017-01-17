@@ -11,7 +11,7 @@ sf::Vector2f convert_screenspace_to_worldspace(const sf::View &view, sf::Vector2
 }
 
 
-Player::Player(sf::RenderWindow &rwindow, sf::Vector2f pos, std::vector<sf::IntRect> &cTiles, std::vector<Guard> gguards)
+Player::Player(sf::RenderWindow &rwindow, sf::Vector2f pos, std::vector<sf::IntRect> &cTiles, std::vector<Guard> &gguards)
 	: window(rwindow), position(pos), collisionTiles(cTiles), guards(gguards)
 {
 	playertexture.loadFromFile("res/playertexture.png");
@@ -40,17 +40,27 @@ void Player::update(const float &delta)
 
 	position += velocity;
 	//collision
+	sf::Vector2i ballPos(position.x - radius, position.y - radius);
+	sf::Vector2i ballSize(32, 32);
 	for (sf::IntRect r : collisionTiles)
 	{
-		sf::Vector2i ballPos(position.x - radius, position.y - radius);
-		sf::Vector2i ballSize(32, 32);
+		
 		if (r.intersects(sf::IntRect(ballPos, ballSize)))
 		{
 			//IDEA: calculate the difference btw the center of the cube and the center of the player and test if x or y is smaller
 			position = ppos;
 		}
 
-	}	
+	}
+
+	//collision with guard
+	for (int i = 0; i < guards.size(); i++)
+	{
+		if (guards[i].rect.intersects(sf::IntRect(ballPos, ballSize)))
+		{
+			guards[i].die();
+		}
+	}
 
 }
 
