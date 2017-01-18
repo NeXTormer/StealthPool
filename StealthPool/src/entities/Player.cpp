@@ -47,8 +47,20 @@ void Player::update(const float &delta)
 		
 		if (r.intersects(sf::IntRect(ballPos, ballSize)))
 		{
-			//IDEA: calculate the difference btw the center of the cube and the center of the player and test if x or y is smaller
-			position = ppos;
+			float dx = std::abs(ballPos.x - r.left);
+			float dy = std::abs(ballPos.y - r.top);
+
+			if (dx > dy)
+			{
+				velocity.x = -velocity.x;
+				position = ppos;
+			} 
+			else if (dy > dx)
+			{
+				velocity.y = -velocity.y;
+				position = ppos;
+			}
+			
 		}
 
 	}

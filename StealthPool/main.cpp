@@ -38,7 +38,7 @@ int main()
 
 	while (window.isOpen()) {
 
-		Window and Mouseevents
+		//Window and Mouseevents
 		sf::Event ev;
 		while (window.pollEvent(ev)) {
 			switch (ev.type) {
@@ -76,7 +76,6 @@ int main()
 
 		//fps calculation
 		time = clock.getElapsedTime();
-		//std::cout << 1.0f / time.asSeconds() << std::endl;
 
 		clock.restart().asSeconds();
 	}
