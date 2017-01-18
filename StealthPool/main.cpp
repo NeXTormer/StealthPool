@@ -8,7 +8,22 @@
 #include "src\entities\player.h"
 
 
-int main() {
+int main()
+{
+	sf::Shader shader;
+	shader.loadFromFile("res/shader/test.vert", "res/shader/test.frag");
+
+	sf::RectangleShape shape;
+	shape.setSize(sf::Vector2f(100, 100));
+	sf::RenderWindow window(sf::VideoMode(500, 500), "Peter", sf::Style::Default);
+
+	window.draw(shape);
+
+	system("PAUSE");
+
+
+}
+/*
 	//Create Window
 #if 0
 	sf::RenderWindow window(sf::VideoMode(2560, 1440), "Peter", sf::Style::Fullscreen);
@@ -79,4 +94,4 @@ int main() {
 
 	
 
-}
+}    */
