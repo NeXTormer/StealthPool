@@ -24,5 +24,7 @@ private:
 	sf::Texture walltexture;
 	sf::Texture floortexture;
 	sf::Texture nulltexture;
+	sf::Texture dirttexture;
+	sf::Texture endtexture;
 
 };

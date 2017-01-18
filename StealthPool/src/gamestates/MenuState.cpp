@@ -22,8 +22,8 @@ void MenuState::draw()
 	window.draw(shape);
 }
 
-void MenuState::update(const float &delta) 
+bool MenuState::update(const float &delta) 
 {
-
+	return false;
 
 }

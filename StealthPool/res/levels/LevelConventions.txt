@@ -1,6 +1,7 @@
-Object: r, g, b | 0xRRGGBBAA
+Object: r, g, b		| 0xRRGGBBAA
 
-Wall: 0, 255, 255 | 0x00FFFFFF
-Floor: 64, 64, 64 | 0x404040FF
-Guard: 76, 255, 0 | 0x4CFF00FF
-
+Wall: 0, 255, 255	| 0x00FFFFFF
+Floor: 64, 64, 64	| 0x404040FF
+Guard: 76, 255, 0	| 0x4CFF00FF
+End: 255, 0, 255	| 0xFF00FFFF
+Dirt: 255, 255, 0	| 0xFFFF00FF

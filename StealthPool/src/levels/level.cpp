@@ -6,6 +6,8 @@ Level::Level()
 	walltexture.loadFromFile("res/wall.png");
 	floortexture.loadFromFile("res/floor.png");
 	nulltexture.loadFromFile("res/nulltexture.png");
+	dirttexture.loadFromFile("res/dirttexture.png");
+	endtexture.loadFromFile("res/endtexture.png");
 }
 
 Level::~Level()
@@ -56,7 +58,13 @@ void Level::loadFromTilemap(std::string path)
 				tiles[y * 64 + x] = new Tile();	//create a voidtile 'under' the guard
 			}
 			else if (hcolor == 0xFFFFFFFF) {
-				tiles[y * 64 + x] = new Tile(); //create new voidtile (will not be rendered, not included in collision detection)
+				tiles[y * 64 + x] = new Tile();
+			}
+			else if (hcolor == 0xFF00FFFF) {
+				tiles[y * 64 + x] = new Tile(endtexture, x * 32, y * 32, false);
+			}
+			else if (hcolor == 0xFFFF00FF) {
+				tiles[y * 64 + x] = new Tile(dirttexture, x * 32, y * 32, false);
 			}
 			else {
 				tiles[y * 64 + x] = new Tile(nulltexture, x * 32, y * 32, false);

@@ -18,7 +18,7 @@ PlayState::PlayState(sf::RenderWindow &rwindow, int lvlnr)
 	std::string nr = std::to_string(lvlnr);
 	std::string suff = ".png";
 	level.loadFromTilemap(pre + nr + suff);
-	player = new Player(rwindow, sf::Vector2f(300, 400), level.collisionTiles, level.guards);
+	player = new Player(rwindow, sf::Vector2f(300, 500), level.collisionTiles, level.guards);
 	staticshader.loadFromFile("res/shader/staticshader.vert", "res/shader/staticshader.frag");
 
 }
@@ -38,11 +38,17 @@ PlayState::~PlayState()
 	delete player;
 }
 
-void PlayState::update(const float &delta)
+bool PlayState::update(const float &delta)
 {
 	player->update(delta);
-	staticshader.setUniform("playerPosition", convert_worldspace_to_screenspace(window.getView(), player->position));
+	staticshader.setUniform("playerPosition", player->position);
 	level.update(delta);
+
+	if (0) //if player is on end tiles
+	{
+		return true;
+	}
+	return false;
 }
 
 void PlayState::draw()

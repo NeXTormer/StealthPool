@@ -12,7 +12,7 @@ public:
 	PlayState(sf::RenderWindow &window, int lvlnr);
 	~PlayState();
 
-	void update(const float &delta) override;
+	bool update(const float &delta) override;
 	void draw() override;
 	void mousePressed(sf::Event &ev);
 	void mouseReleased(sf::Event &ev);
