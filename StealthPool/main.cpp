@@ -10,20 +10,7 @@
 
 int main()
 {
-	sf::Shader shader;
-	shader.loadFromFile("res/shader/test.vert", "res/shader/test.frag");
 
-	sf::RectangleShape shape;
-	shape.setSize(sf::Vector2f(100, 100));
-	sf::RenderWindow window(sf::VideoMode(500, 500), "Peter", sf::Style::Default);
-
-	window.draw(shape);
-
-	system("PAUSE");
-
-
-}
-/*
 	//Create Window
 #if 0
 	sf::RenderWindow window(sf::VideoMode(2560, 1440), "Peter", sf::Style::Fullscreen);
@@ -45,8 +32,13 @@ int main()
 	GameStateManager gsm;
 	PlayState playstate(window, 1);
 
+
+	sf::CircleShape shape(100);
+
+
 	while (window.isOpen()) {
-		//Window and Mouseevents
+
+		Window and Mouseevents
 		sf::Event ev;
 		while (window.pollEvent(ev)) {
 			switch (ev.type) {
@@ -94,4 +86,4 @@ int main()
 
 	
 
-}    */
+}  
