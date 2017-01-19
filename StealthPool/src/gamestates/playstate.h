@@ -23,8 +23,10 @@ public:
 
 private:
 	sf::Shader staticshader;
-
+	int levelnumber;
 	Level level;
 	sf::RenderWindow &window;
+	sf::Texture credits;
+	sf::Sprite creditsSprite;
 
 };

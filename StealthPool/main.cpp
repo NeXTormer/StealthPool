@@ -33,9 +33,6 @@ int main()
 	PlayState *playstate = new PlayState(window, currentlevel);
 
 
-	sf::CircleShape shape(100);
-
-
 	while (window.isOpen()) {
 
 		//Window and Mouseevents

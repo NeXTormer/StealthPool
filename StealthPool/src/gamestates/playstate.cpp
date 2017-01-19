@@ -20,6 +20,13 @@ PlayState::PlayState(sf::RenderWindow &rwindow, int lvlnr)
 	level.loadFromTilemap(pre + nr + suff);
 	player = new Player(rwindow, sf::Vector2f(300, 500), level.collisionTiles, level.guards);
 	staticshader.loadFromFile("res/shader/staticshader.vert", "res/shader/staticshader.frag");
+	levelnumber = lvlnr;
+	if (levelnumber)
+	{
+		credits.loadFromFile("res/credits.png");
+		creditsSprite.setTexture(credits);
+		creditsSprite.setPosition(sf::Vector2f(130, 580));
+	}
 
 }
 
@@ -58,4 +65,8 @@ void PlayState::draw()
 {
 	level.draw(window, staticshader);
 	player->draw(staticshader);
+	if (levelnumber == 1)
+	{
+		window.draw(creditsSprite);
+	}
 }

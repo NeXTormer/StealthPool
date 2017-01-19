@@ -204,6 +204,9 @@
     <None Include="res\shader\staticshader.frag" />
     <None Include="res\shader\staticshader.vert" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\arial.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
