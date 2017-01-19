@@ -12,8 +12,7 @@ Level::Level()
 
 Level::~Level()
 {
-	
-	//delete[] tiles;
+
 }
 
 void Level::draw(sf::RenderWindow& window, sf::Shader &shader)

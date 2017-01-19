@@ -12,8 +12,8 @@ int main()
 {
 
 	//Create Window
-#if 0
-	sf::RenderWindow window(sf::VideoMode(1920, 1080), "StealthPool", sf::Style::Close);
+#if 1
+	sf::RenderWindow window(sf::VideoMode(1920, 1080), "StealthPool", sf::Style::Fullscreen);
 	sf::View view(sf::Vector2f(500, 500), sf::Vector2f(1920, 1080));
 
 #else

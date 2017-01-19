@@ -22,6 +22,7 @@ public:
 	std::vector<sf::IntRect> endTiles;
 private:
 	Tile tiles[64 * 64];
+
 	sf::Texture walltexture;
 	sf::Texture floortexture;
 	sf::Texture nulltexture;

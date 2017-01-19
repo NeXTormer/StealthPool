@@ -127,7 +127,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)\SFML-2.4.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <Link>
@@ -183,9 +183,12 @@
     <ClInclude Include="src\utils\random.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\dirttexture.png" />
+    <Image Include="res\endtexture.png" />
     <Image Include="res\floor.png" />
     <Image Include="res\guardtexture.png" />
     <Image Include="res\guardtexture2.png" />
+    <Image Include="res\guardtextureDead.png" />
     <Image Include="res\levels\level1.png" />
     <Image Include="res\levels\level2.png" />
     <Image Include="res\levels\level3.png" />
