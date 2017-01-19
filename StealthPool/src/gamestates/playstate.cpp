@@ -38,9 +38,9 @@ PlayState::~PlayState()
 	delete player;
 }
 
-bool PlayState::update(const float &delta)
+bool PlayState::update(const float &delta, sf::View &view)
 {
-	player->update(delta);
+	player->update(delta, view);
 	staticshader.setUniform("playerPosition", player->position);
 	level.update(delta);
 

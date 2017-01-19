@@ -13,9 +13,9 @@ void GameStateManager::draw(sf::RenderWindow &window)
 	gamestates.top()->draw();
 }
 
-void GameStateManager::update(const float &delta) 
+void GameStateManager::update(const float &delta, sf::View &view) 
 {
-	gamestates.top()->update(delta);
+	gamestates.top()->update(delta, view);
 }
 
 void GameStateManager::push(GameState *gamestate)

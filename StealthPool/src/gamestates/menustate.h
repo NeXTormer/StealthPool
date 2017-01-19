@@ -7,7 +7,7 @@ public:
 	MenuState(sf::RenderWindow &window, GameStateManager &gamestatemanager);
 	~MenuState();
 
-	bool update(const float &delta) override;
+	bool update(const float &delta, sf::View &view) override;
 	void draw() override;
 
 private:

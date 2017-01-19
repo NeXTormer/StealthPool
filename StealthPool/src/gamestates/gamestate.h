@@ -4,6 +4,6 @@
 class GameState 
 {
 public:
-	virtual bool update(const float &delta) = 0;
+	virtual bool update(const float &delta, sf::View &view) = 0;
 	virtual void draw() = 0;
 };

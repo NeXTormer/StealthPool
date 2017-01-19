@@ -3,6 +3,8 @@
 
 #include <math.h>
 
+#define LOG(x) std::cout << x << std::endl
+
 sf::Vector2f convert_screenspace_to_worldspace(const sf::View &view, sf::Vector2f screenSpaceCoordinates)
 {
 	int diffx = view.getCenter().x - view.getSize().x * 0.5f;
@@ -27,7 +29,7 @@ Player::~Player()
 //rect.left = x
 //rect.top = y
 
-void Player::update(const float &delta)
+void Player::update(const float &delta, sf::View &view)
 {  
 	sf::Vector2f ppos = position;
 	
@@ -47,21 +49,55 @@ void Player::update(const float &delta)
 		
 		if (r.intersects(sf::IntRect(ballPos, ballSize)))
 		{
-			float dx = std::abs(ballPos.x - r.left);
-			float dy = std::abs(ballPos.y - r.top);
+			float tilex = r.left + 16;
+			float tiley = r.top + 16;
+			float dx = std::abs(position.x - (tilex));
+			float dy = std::abs(position.y - (tiley));
 
-			if (dx > dy)
+			float absvelx = std::abs(velocity.x);
+			float absvely = std::abs(velocity.y);
+
+			if (dx >= dy)
 			{
-				velocity.x = -velocity.x;
-				position = ppos;
+				if (position.x > tilex)
+				{
+					LOG("left");
+					velocity.x = absvelx;
+					//velocity.y = 0;
+					position = ppos;
+
+				}
+				else if (position.x < tilex)
+				{
+					LOG("right");
+					velocity.x = -absvelx;
+					//velocity.y = 0;
+					position = ppos;
+				}
 			} 
 			else if (dy > dx)
 			{
-				velocity.y = -velocity.y;
-				position = ppos;
+				if (position.y > tiley)
+				{
+					LOG("top");
+					//velocity.x = 0;
+					velocity.y = absvely;
+					position = ppos;
+				}
+				else if (position.y < tiley)
+				{
+					LOG("Bottom");
+					//velocity.x = 0;
+					velocity.y = -absvely;
+					position = ppos;
+				}
+
 			}
+			position = ppos;
+			position += velocity;
 			
 		}
+		view.setCenter(position);
 
 	}
 

@@ -22,7 +22,7 @@ void MenuState::draw()
 	window.draw(shape);
 }
 
-bool MenuState::update(const float &delta) 
+bool MenuState::update(const float &delta, sf::View &view) 
 {
 	return false;
 

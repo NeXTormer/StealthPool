@@ -13,7 +13,7 @@ int main()
 
 	//Create Window
 #if 0
-	sf::RenderWindow window(sf::VideoMode(1920, 1080), "StealthPool", sf::Style::Fullscreen);
+	sf::RenderWindow window(sf::VideoMode(1920, 1080), "StealthPool", sf::Style::Close);
 	sf::View view(sf::Vector2f(500, 500), sf::Vector2f(1920, 1080));
 
 #else
@@ -27,6 +27,7 @@ int main()
 	sf::Color clearcolor(0x03030300);
 	sf::Vector2f viewcenterbase = view.getCenter();
 	int currentlevel = 1;
+	sf::Texture levelTileMap;
 
 	GameStateManager gsm;
 	PlayState *playstate = new PlayState(window, currentlevel);
@@ -62,14 +63,10 @@ int main()
 		window.clear(clearcolor);
 
 #if 1
-		//move camera
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) view.move(sf::Vector2f(-10, 0));
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) view.move(sf::Vector2f(10, 0));
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) view.move(sf::Vector2f(0, 10));
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) view.move(sf::Vector2f(0, -10));
+
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) 
 		{
-			//delete playstate; //if it doesn't get deleted it causes a memory leak, can't delete it because bug in >delete[] tiles< in Level::~Level()
+			delete playstate;
 			currentlevel = 1;
 			playstate = new PlayState(window, currentlevel);
 			view.setCenter(viewcenterbase);
@@ -79,12 +76,22 @@ int main()
 #endif
 		//update & render
 		playstate->draw();
-		if (playstate->update(10))
+		if (playstate->update(10, view))
 		{
-			currentlevel++;
-			// delete playstate; should be deleted but doest't work
+			std::string pre = "res/levels/level";
+			std::string lvlnr = std::to_string(currentlevel + 1);
+			std::string suff = ".png";
+			if (levelTileMap.loadFromFile(pre + lvlnr + suff))
+			{
+				currentlevel++;
+			}
+			else
+			{
+				currentlevel = 1;
+			}			
+			delete playstate;
 			playstate = new PlayState(window, currentlevel);
-			view.setCenter(viewcenterbase);
+			
 		}
 		window.display();
 	}

@@ -16,7 +16,7 @@ public:
 	Player(sf::RenderWindow &window, sf::Vector2f pos, std::vector<sf::IntRect> &cTiles, std::vector<Guard> &gguards);
 	~Player();
 
-	void update(const float &delta);
+	void update(const float &delta, sf::View &view);
 	void draw(sf::Shader &shader);
 
 	void mousePressed(sf::Event &ev);

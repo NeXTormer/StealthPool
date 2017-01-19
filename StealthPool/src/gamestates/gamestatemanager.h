@@ -11,7 +11,7 @@ public:
 	GameStateManager();
 	~GameStateManager();
 	void draw(sf::RenderWindow &window);
-	void update(const float &delta);
+	void update(const float &delta, sf::View &view);
 	void push(GameState *gamestate);
 	void pop();
 private:

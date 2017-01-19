@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <memory>
 
 #include "tiles\Tile.h"
 #include "../entities/guard.h"
@@ -20,8 +21,7 @@ public:
 	std::vector<Guard> guards;
 	std::vector<sf::IntRect> endTiles;
 private:
-	Tile *tiles[64 * 64];
-
+	Tile tiles[64 * 64];
 	sf::Texture walltexture;
 	sf::Texture floortexture;
 	sf::Texture nulltexture;
