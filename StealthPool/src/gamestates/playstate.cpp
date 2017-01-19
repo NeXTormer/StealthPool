@@ -44,9 +44,12 @@ bool PlayState::update(const float &delta)
 	staticshader.setUniform("playerPosition", player->position);
 	level.update(delta);
 
-	if (0) //if player is on end tiles
+	for (sf::IntRect rect : level.endTiles)
 	{
-		return true;
+		if (rect.intersects(sf::IntRect(player->position.x - 16, player->position.y - 16, 32, 32)))
+		{
+			return true;
+		}
 	}
 	return false;
 }

@@ -3,6 +3,7 @@
 
 Level::Level()
 {
+	tiles = new Tile[64 * 64];
 	walltexture.loadFromFile("res/wall.png");
 	floortexture.loadFromFile("res/floor.png");
 	nulltexture.loadFromFile("res/nulltexture.png");
@@ -15,23 +16,23 @@ Level::~Level()
 	delete[] tiles;
 }
 
-void Level::draw(sf::RenderWindow & window, sf::Shader &shader)
+void Level::draw(sf::RenderWindow& window, sf::Shader &shader)
 {
 	for (int i = 0; i < tilenumber; i++)
 	{
 		tiles[i]->draw(window, shader);
 	}
-	for(Guard g : guards)
+	for (int i = 0; i < guards.size(); i++)
 	{
-		g.draw(window, shader);
+		guards[i].draw(window, shader);
 	}
 }
 
 void Level::update(const float &delta)
 {
-	for (Guard g : guards)
+	for (int i = 0; i < guards.size(); i++)
 	{
-		g.update();
+		guards[i].update();
 	}
 }
 
@@ -49,6 +50,7 @@ void Level::loadFromTilemap(std::string path)
 			unsigned int hcolor = color.toInteger();
 			if (hcolor == 0x00FFFFFF) {
 				tiles[y * 64 + x] = new Tile(walltexture, x * 32, y * 32, true);
+				collisionTiles.push_back(sf::IntRect(x * 32, y * 32, 32, 32)); //add tile to  collisionTiles to make it collideable
 			}
 			else if (hcolor == 0x404040FF) {
 				tiles[y * 64 + x] = new Tile(floortexture, x * 32, y * 32, false);
@@ -62,6 +64,7 @@ void Level::loadFromTilemap(std::string path)
 			}
 			else if (hcolor == 0xFF00FFFF) {
 				tiles[y * 64 + x] = new Tile(endtexture, x * 32, y * 32, false);
+				endTiles.push_back(sf::IntRect(x * 32, y * 32, 32, 32));
 			}
 			else if (hcolor == 0xFFFF00FF) {
 				tiles[y * 64 + x] = new Tile(dirttexture, x * 32, y * 32, false);
@@ -72,21 +75,6 @@ void Level::loadFromTilemap(std::string path)
 
 		}
 	}
-
-
-	for (unsigned int y = 0; y < 64; y++)
-	{
-		for (unsigned int x = 0; x < 64; x++)
-		{
-			if (tiles[y * 64 + x]->collide)
-			{
-				collisionTiles.push_back(sf::IntRect(x * 32, y * 32, 32, 32));
-			}
-		}
-	}
-
-
-
 }
 
 

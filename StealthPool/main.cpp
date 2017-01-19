@@ -11,9 +11,6 @@
 int main()
 {
 
-	//TODO: Check winning conditions in PlayState::update -> return true when condition is fulfilled -> check in main class and set new level
-	//		esc Btn to reset game to lvl 1 -> almost finished
-
 	//Create Window
 #if 0
 	sf::RenderWindow window(sf::VideoMode(1920, 1080), "StealthPool", sf::Style::Fullscreen);
@@ -28,13 +25,11 @@ int main()
 
 
 	sf::Color clearcolor(0x03030300);
-	sf::Clock clock;
-	sf::Time time;
 	sf::Vector2f viewcenterbase = view.getCenter();
-	
+	int currentlevel = 1;
 
 	GameStateManager gsm;
-	PlayState *playstate = new PlayState(window, 1);
+	PlayState *playstate = new PlayState(window, currentlevel);
 
 
 	sf::CircleShape shape(100);
@@ -75,7 +70,8 @@ int main()
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) 
 		{
 			//delete playstate; //if it doesn't get deleted it causes a memory leak, can't delete it because bug in >delete[] tiles< in Level::~Level()
-			playstate = new PlayState(window, 1);
+			currentlevel = 1;
+			playstate = new PlayState(window, currentlevel);
 			view.setCenter(viewcenterbase);
 		}
 		
@@ -83,13 +79,14 @@ int main()
 #endif
 		//update & render
 		playstate->draw();
-		playstate->update(10);
+		if (playstate->update(10))
+		{
+			currentlevel++;
+			// delete playstate; should be deleted but doest't work
+			playstate = new PlayState(window, currentlevel);
+			view.setCenter(viewcenterbase);
+		}
 		window.display();
-
-		//fps calculation
-		time = clock.getElapsedTime();
-
-		clock.restart().asSeconds();
 	}
 
 	window.close();

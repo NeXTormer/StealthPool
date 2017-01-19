@@ -18,6 +18,7 @@ public:
 	void update(const float &delta);
 	std::vector<sf::IntRect> collisionTiles;
 	std::vector<Guard> guards;
+	std::vector<sf::IntRect> endTiles;
 private:
 	Tile *tiles[64 * 64];
 
