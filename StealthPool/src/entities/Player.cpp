@@ -61,7 +61,7 @@ void Player::update(const float &delta, sf::View &view)
 			{
 				if (position.x > tilex)
 				{
-					LOG("left");
+					//LOG("left");
 					velocity.x = absvelx;
 					//velocity.y = 0;
 					position = ppos;
@@ -69,7 +69,7 @@ void Player::update(const float &delta, sf::View &view)
 				}
 				else if (position.x < tilex)
 				{
-					LOG("right");
+					//LOG("right");
 					velocity.x = -absvelx;
 					//velocity.y = 0;
 					position = ppos;
@@ -79,14 +79,14 @@ void Player::update(const float &delta, sf::View &view)
 			{
 				if (position.y > tiley)
 				{
-					LOG("top");
+					//LOG("top");
 					//velocity.x = 0;
 					velocity.y = absvely;
 					position = ppos;
 				}
 				else if (position.y < tiley)
 				{
-					LOG("Bottom");
+					//LOG("Bottom");
 					//velocity.x = 0;
 					velocity.y = -absvely;
 					position = ppos;

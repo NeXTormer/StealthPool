@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 
 sf::Vector2f convert_worldspace_to_screenspace(const sf::View &view, sf::Vector2f worldSpaceCoordinates)
 {
@@ -23,7 +24,10 @@ PlayState::PlayState(sf::RenderWindow &rwindow, int lvlnr)
 	levelnumber = lvlnr;
 	if (levelnumber)
 	{
-		credits.loadFromFile("res/credits.png");
+		if (!credits.loadFromFile("res/credits.png"))
+		{
+			exit(EXIT_SUCCESS);
+		}
 		creditsSprite.setTexture(credits);
 		creditsSprite.setPosition(sf::Vector2f(130, 580));
 	}
