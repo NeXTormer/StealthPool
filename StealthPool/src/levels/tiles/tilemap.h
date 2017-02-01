@@ -12,6 +12,7 @@ public:
 private:
 	sf::Shader *shader;
 	sf::Texture tileset;
+	void loadTileSet(sf::String path);
 	
 	
 };
