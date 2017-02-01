@@ -2,24 +2,22 @@
 
 #include <SFML\Graphics.hpp>
 
-class Guard
+class Guard : public sf::Drawable, sf::Transformable
 {
 public:
-	Guard(sf::Vector2f pos);
+	Guard(sf::Vector2f pos, sf::Shader &shader);
 	~Guard();
 
-	void draw(sf::RenderWindow &window, sf::Shader &shader);
+	virtual void draw(sf::RenderTarget &rendertarget, sf::RenderStates renderstates) const;
 	void die();
 	void update();
-
-	sf::Vector2f position;
 
 	sf::IntRect rect;
 private:
 	sf::Texture texture;
 	sf::Texture deadTexture;
-	sf::Sprite sprite;
-
+	sf::VertexArray model;
+	sf::Shader &shader;
 	bool dead;
 
 

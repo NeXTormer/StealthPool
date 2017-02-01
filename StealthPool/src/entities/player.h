@@ -6,7 +6,7 @@
 #include "guard.h"
 
 
-class Player 
+class Player
 {
 public:
 	sf::Vector2f position; //middle of the ball

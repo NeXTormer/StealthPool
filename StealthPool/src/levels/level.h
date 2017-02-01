@@ -11,7 +11,7 @@ class Level
 {
 public:
 	static const int tilenumber = 64 * 64;
-	Level();
+	Level(sf::Shader &shader);
 	~Level();
 
 	void loadFromTilemap(std::string path);
@@ -28,5 +28,7 @@ private:
 	sf::Texture nulltexture;
 	sf::Texture dirttexture;
 	sf::Texture endtexture;
+
+	sf::Shader &shader;
 
 };

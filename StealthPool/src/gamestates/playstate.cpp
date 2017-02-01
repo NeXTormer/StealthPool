@@ -13,7 +13,7 @@ sf::Vector2f convert_worldspace_to_screenspace(const sf::View &view, sf::Vector2
 
 
 PlayState::PlayState(sf::RenderWindow &rwindow, int lvlnr)
-	: window(rwindow)
+	: window(rwindow), level(staticshader)
 {
 	std::string pre = "res/levels/level";
 	std::string nr = std::to_string(lvlnr);

@@ -1,7 +1,8 @@
 #include "level.h"
 #include "SFML\Graphics.hpp"
 
-Level::Level()
+Level::Level(sf::Shader &shader)
+	: shader(shader)
 {
 	walltexture.loadFromFile("res/wall.png");
 	floortexture.loadFromFile("res/floor.png");
@@ -23,7 +24,7 @@ void Level::draw(sf::RenderWindow& window, sf::Shader &shader)
 	}
 	for (int i = 0; i < guards.size(); i++)
 	{
-		guards[i].draw(window, shader);
+		window.draw(guards[i]);
 	}
 }
 
@@ -55,7 +56,7 @@ void Level::loadFromTilemap(std::string path)
 				tiles[y * 64 + x] = Tile(floortexture, x * 32, y * 32, false);
 			}
 			else if (hcolor == 0x4CFF00FF) {
-				guards.push_back(Guard(sf::Vector2f(x * 32, y * 32))); //add a new guard to the vector
+				guards.push_back(Guard(sf::Vector2f(x * 32, y * 32), shader)); //add a new guard to the vector
 				tiles[y * 64 + x] = Tile();	//create a voidtile 'under' the guard
 			}
 			else if (hcolor == 0xFFFFFFFF) {
