@@ -5,6 +5,7 @@
 #include "gamestate.h"
 #include "../levels/level.h"
 #include "../entities/player.h"
+#include "../levels/tiles/tilemap.h"
 
 class PlayState : public GameState
 {
@@ -24,7 +25,7 @@ public:
 private:
 	sf::Shader staticshader;
 	int levelnumber;
-	Level level;
+	TileMap tilemap;
 	sf::RenderWindow &window;
 	sf::Texture credits;
 	sf::Sprite creditsSprite;

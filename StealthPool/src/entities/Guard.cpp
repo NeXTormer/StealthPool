@@ -22,8 +22,6 @@ Guard::Guard(sf::Vector2f pos, sf::Shader &shader)
 	model[1].texCoords = sf::Vector2f(32, 0);
 	model[2].texCoords = sf::Vector2f(32, 32);
 	model[3].texCoords = sf::Vector2f(0, 32);
-
-	
 }
 
 void Guard::draw(sf::RenderTarget &rendertarget, sf::RenderStates renderstates) const

@@ -7,7 +7,6 @@
 #include "src\gamestates\playstate.h"
 #include "src\entities\player.h"
 
-
 int main()
 {
 
@@ -19,9 +18,9 @@ int main()
 	window.setFramerateLimit(100);
 #else
 
-	sf::RenderWindow window(sf::VideoMode(1920, 1080), "StealthPool", sf::Style::Close | sf::Style::Default);
+	sf::RenderWindow window(sf::VideoMode(1920/2, 1080/2), "StealthPool", sf::Style::Close | sf::Style::Default);
 	window.setFramerateLimit(100);
-	sf::View view(sf::Vector2f(500, 500), sf::Vector2f(1920, 1080));
+	sf::View view(sf::Vector2f(500, 500), sf::Vector2f(1920/2, 1080/2));
 	
 #endif
 
@@ -96,8 +95,4 @@ int main()
 	}
 
 	window.close();
-
-
-	
-
 }  
