@@ -33,6 +33,7 @@ int main()
 	GameStateManager gsm;
 	PlayState *playstate = new PlayState(window, currentlevel);
 
+	//sf::Clock clock;
 
 	while (window.isOpen()) {
 
@@ -92,6 +93,8 @@ int main()
 			
 		}
 		window.display();
+		//printf("LoopTime: %f \n", 1 / clock.getElapsedTime().asSeconds());
+		//clock.restart();
 	}
 
 	window.close();

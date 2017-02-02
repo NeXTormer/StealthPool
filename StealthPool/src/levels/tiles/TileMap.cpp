@@ -55,10 +55,10 @@ void TileMap::loadFromFile(sf::String path)
 				currentTile[3].position = sf::Vector2f(j * tilesize, (i + 1) * tilesize);
 
 				guards.push_back(Guard(sf::Vector2f(j * 32, i * 32), *shader));
-				currentTile[0].texCoords = sf::Vector2f(2 * 32, 0);
-				currentTile[1].texCoords = sf::Vector2f(3 * 32, 0);
-				currentTile[2].texCoords = sf::Vector2f(3 * 32, 32);
-				currentTile[3].texCoords = sf::Vector2f(2 * 32, 32);
+				currentTile[0].texCoords = sf::Vector2f(0, 0);
+				currentTile[1].texCoords = sf::Vector2f(32, 0);
+				currentTile[2].texCoords = sf::Vector2f(32, 32);
+				currentTile[3].texCoords = sf::Vector2f(0, 32);
 			}
 			else if (hcolor == 0xFFFFFFFF) {
 				//currentTile[0].position = sf::Vector2f(j * tilesize, i * tilesize);
