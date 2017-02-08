@@ -3,7 +3,6 @@
 #include <SFML/Graphics.hpp>
 
 #include "gamestate.h"
-#include "../levels/level.h"
 #include "../entities/player.h"
 #include "../levels/tiles/tilemap.h"
 
@@ -23,7 +22,7 @@ public:
 
 
 private:
-	sf::Shader staticshader;
+	sf::Shader *staticshader;
 	int levelnumber;
 	TileMap tilemap;
 	sf::RenderWindow &window;

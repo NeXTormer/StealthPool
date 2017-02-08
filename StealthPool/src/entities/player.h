@@ -17,7 +17,7 @@ public:
 	~Player();
 
 	void update(const float &delta, sf::View &view);
-	void draw(sf::Shader &shader);
+	void draw(sf::Shader *shader);
 
 	void mousePressed(sf::Event &ev);
 	void mouseReleased(sf::Event &ev);

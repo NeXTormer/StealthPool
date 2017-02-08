@@ -11,11 +11,11 @@ int main()
 {
 
 	//Create Window
-#if 1
+#if 0
 	
 	sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "StealthPool", sf::Style::Fullscreen);
 	sf::View view(sf::Vector2f(500, 500), sf::Vector2f(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height));
-	//window.setFramerateLimit(100);
+	window.setFramerateLimit(100);
 #else
 
 	sf::RenderWindow window(sf::VideoMode(1920/2, 1080/2), "StealthPool", sf::Style::Close | sf::Style::Default);

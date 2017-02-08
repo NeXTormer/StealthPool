@@ -1,50 +1,55 @@
 #include "guard.h"
+#include <iostream>
 
 Guard::~Guard()
 {
 
 }
 
-Guard::Guard(sf::Vector2f pos, sf::Shader &shader)
-	: rect(sf::Vector2i(pos.x, pos.y), sf::Vector2i(32, 32)), model(sf::Quads, 4), shader(shader)
+Guard::Guard(sf::Vector2f pos, sf::Shader &shaderp, sf::Texture &texture)
+	: rect(sf::Vector2i(pos.x, pos.y), sf::Vector2i(32, 32)), mesh(sf::Quads, 4), tileset(texture), shader(shaderp)
 {
+	std::cout << &shaderp << std::endl;
+	//workingshader.loadFromFile("res/shader/staticshader.vert", "res/shader/staticshader.frag");
+
+
+	//std::cout << &shaderp << std::endl;
+
+
 	setPosition(pos);
-	texture.loadFromFile("res/guardtexture2.png");
-	deadTexture.loadFromFile("res/guardtextureDead.png");
+	tileset.loadFromFile("res/tileset.png");
 	dead = false;
 
-	model[0] = sf::Vector2f(0, 0);
-	model[1] = sf::Vector2f(32, 0);
-	model[2] = sf::Vector2f(32, 32);
-	model[3] = sf::Vector2f(0, 32);
+	mesh[0] = sf::Vector2f(0, 0);
+	mesh[1] = sf::Vector2f(32, 0);
+	mesh[2] = sf::Vector2f(32, 32);
+	mesh[3] = sf::Vector2f(0, 32);
 
-	model[0].texCoords = sf::Vector2f(0, 0);
-	model[1].texCoords = sf::Vector2f(32, 0);
-	model[2].texCoords = sf::Vector2f(32, 32);
-	model[3].texCoords = sf::Vector2f(0, 32);
+	mesh[0].texCoords = sf::Vector2f(0, 32);
+	mesh[1].texCoords = sf::Vector2f(32, 32);
+	mesh[2].texCoords = sf::Vector2f(32, 64);
+	mesh[3].texCoords = sf::Vector2f(0, 64);
+
 }
+
 
 void Guard::draw(sf::RenderTarget &rendertarget, sf::RenderStates renderstates) const
 {
 
 	renderstates.transform = getTransform();
 	renderstates.shader = &shader;
+	renderstates.texture = &tileset;
 	
-	if (dead)
-	{
-		renderstates.texture = &deadTexture;
-	} 
-	else
-	{
-		renderstates.texture = &texture;
-	}
-
-	rendertarget.draw(model, renderstates);
+	rendertarget.draw(mesh, renderstates);
 }
 
 void Guard::die()
 {
 	dead = true;
+	mesh[0].texCoords = sf::Vector2f(32, 32);
+	mesh[1].texCoords = sf::Vector2f(64, 32);
+	mesh[2].texCoords = sf::Vector2f(64, 64);
+	mesh[3].texCoords = sf::Vector2f(32, 64);
 }
 
 void Guard::update()

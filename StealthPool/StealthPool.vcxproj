@@ -166,7 +166,6 @@
     <ClCompile Include="src\gamestates\GameStateManager.cpp" />
     <ClCompile Include="src\gamestates\MenuState.cpp" />
     <ClCompile Include="src\gamestates\playstate.cpp" />
-    <ClCompile Include="src\levels\level.cpp" />
     <ClCompile Include="src\levels\tiles\tile.cpp" />
     <ClCompile Include="src\levels\tiles\TileMap.cpp" />
   </ItemGroup>
@@ -177,7 +176,6 @@
     <ClInclude Include="src\gamestates\gamestatemanager.h" />
     <ClInclude Include="src\gamestates\menustate.h" />
     <ClInclude Include="src\gamestates\playstate.h" />
-    <ClInclude Include="src\levels\level.h" />
     <ClInclude Include="src\levels\tiles\tile.h" />
     <ClInclude Include="src\levels\tiles\tilemap.h" />
     <ClInclude Include="src\utils\random.h" />

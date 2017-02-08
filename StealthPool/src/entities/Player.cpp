@@ -1,5 +1,4 @@
 #include "player.h"
-#include "../levels/level.h"
 
 #include <math.h>
 
@@ -112,11 +111,11 @@ void Player::update(const float &delta, sf::View &view)
 
 }
 
-void Player::draw(sf::Shader &shader)
+void Player::draw(sf::Shader *shader)
 {
 	sf::Vector2f posw(position.x - radius, position.y - radius);
 	sprite.setPosition(posw);
-	window.draw(sprite, &shader);
+	window.draw(sprite, shader);
 }
 
 
