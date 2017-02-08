@@ -11,11 +11,11 @@ int main()
 {
 
 	//Create Window
-#if 0
+#if 1
 	
 	sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "StealthPool", sf::Style::Fullscreen);
 	sf::View view(sf::Vector2f(500, 500), sf::Vector2f(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height));
-	window.setFramerateLimit(100);
+	//window.setFramerateLimit(100);
 #else
 
 	sf::RenderWindow window(sf::VideoMode(1920/2, 1080/2), "StealthPool", sf::Style::Close | sf::Style::Default);
@@ -33,7 +33,7 @@ int main()
 	GameStateManager gsm;
 	PlayState *playstate = new PlayState(window, currentlevel);
 
-	//sf::Clock clock;
+	sf::Clock clock;
 
 	while (window.isOpen()) {
 
@@ -93,8 +93,8 @@ int main()
 			
 		}
 		window.display();
-		//printf("LoopTime: %f \n", 1 / clock.getElapsedTime().asSeconds());
-		//clock.restart();
+		printf("FPS: %f \n", 1.0f / clock.getElapsedTime().asSeconds());
+		clock.restart();
 	}
 
 	window.close();
