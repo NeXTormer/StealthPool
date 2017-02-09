@@ -32,10 +32,10 @@ void TileMap::loadFromFile(sf::String path)
 				currentTile[2].position = sf::Vector2f((j + 1) * tilesize, (i + 1) * tilesize);
 				currentTile[3].position = sf::Vector2f(j * tilesize, (i + 1) * tilesize);
 
-				currentTile[0].texCoords = sf::Vector2f(3 * 32, 32);
-				currentTile[1].texCoords = sf::Vector2f(4 * 32, 32);
-				currentTile[2].texCoords = sf::Vector2f(4 * 32, 2 * 32);
-				currentTile[3].texCoords = sf::Vector2f(3 * 32, 2 * 32);
+				currentTile[0].texCoords = sf::Vector2f(96, 0);
+				currentTile[1].texCoords = sf::Vector2f(128, 0);
+				currentTile[2].texCoords = sf::Vector2f(128, 32);
+				currentTile[3].texCoords = sf::Vector2f(96, 32);
 
 				collisionTiles.push_back(sf::IntRect(j * 32, i * 32, 32, 32)); //add tile to  collisionTiles to make it collideable
 			}

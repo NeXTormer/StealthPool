@@ -6,6 +6,7 @@
 #include "src\gamestates\menustate.h"
 #include "src\gamestates\playstate.h"
 #include "src\entities\player.h"
+#include "src\menu\Button.h"
 
 int main()
 {
