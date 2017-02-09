@@ -1,12 +1,14 @@
 #include "tilemap.h"
+#include "../../gamestates/playstate.h"
 #include <iostream>
 
 TileMap::TileMap()
 {
 	tileset.loadFromFile("res/tileset.png");
+	mesh = sf::VertexArray(sf::PrimitiveType::Quads, 64 * 64 * 4);
+
 }
 
-sf::VertexArray TileMap::mesh = sf::VertexArray(sf::PrimitiveType::Quads, 64 * 64 * 4);
 
 void TileMap::loadFromFile(sf::String path)
 {
@@ -54,7 +56,7 @@ void TileMap::loadFromFile(sf::String path)
 				currentTile[2].position = sf::Vector2f((j + 1) * tilesize, (i + 1) * tilesize);
 				currentTile[3].position = sf::Vector2f(j * tilesize, (i + 1) * tilesize);
 
-				guards.push_back(Guard(sf::Vector2f(j * 32, i * 32), *shader, tileset));
+				guards.push_back(Guard(sf::Vector2f(j * 32, i * 32), tileset));
 				currentTile[0].texCoords = sf::Vector2f(0, 0);
 				currentTile[1].texCoords = sf::Vector2f(32, 0);
 				currentTile[2].texCoords = sf::Vector2f(32, 32);
@@ -118,16 +120,11 @@ void TileMap::loadFromFile(sf::String path)
 	c.restart();
 }
 
-void TileMap::setShader(sf::Shader *shader)
-{
-	this->shader = shader;
 
-}
-
-void TileMap::draw(sf::RenderTarget & target, sf::RenderStates states) const
+void TileMap::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
 	states.transform = getTransform();
-	states.shader = shader;
+	states.shader = PlayState::shader;
 	states.texture = &tileset;
 
 

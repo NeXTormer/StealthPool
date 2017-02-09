@@ -1,20 +1,15 @@
 #include "guard.h"
 #include <iostream>
+#include "../gamestates/playstate.h"
 
 Guard::~Guard()
 {
 
 }
 
-Guard::Guard(sf::Vector2f pos, sf::Shader &shaderp, sf::Texture &texture)
-	: rect(sf::Vector2i(pos.x, pos.y), sf::Vector2i(32, 32)), mesh(sf::Quads, 4), tileset(texture), shader(shaderp)
+Guard::Guard(sf::Vector2f pos, sf::Texture &texture)
+	: rect(sf::Vector2i(pos.x, pos.y), sf::Vector2i(32, 32)), mesh(sf::Quads, 4), tileset(texture)
 {
-	std::cout << &shaderp << std::endl;
-	//workingshader.loadFromFile("res/shader/staticshader.vert", "res/shader/staticshader.frag");
-
-
-	//std::cout << &shaderp << std::endl;
-
 
 	setPosition(pos);
 	tileset.loadFromFile("res/tileset.png");
@@ -37,7 +32,7 @@ void Guard::draw(sf::RenderTarget &rendertarget, sf::RenderStates renderstates) 
 {
 
 	renderstates.transform = getTransform();
-	renderstates.shader = &shader;
+	renderstates.shader = PlayState::shader;
 	renderstates.texture = &tileset;
 	
 	rendertarget.draw(mesh, renderstates);

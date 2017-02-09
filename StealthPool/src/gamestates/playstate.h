@@ -17,12 +17,10 @@ public:
 	void mousePressed(sf::Event &ev);
 	void mouseReleased(sf::Event &ev);
 
-
 	Player *player;
 
-
+	static sf::Shader *shader;
 private:
-	sf::Shader *staticshader;
 	int levelnumber;
 	TileMap tilemap;
 	sf::RenderWindow &window;

@@ -11,20 +11,20 @@ sf::Vector2f convert_worldspace_to_screenspace(const sf::View &view, sf::Vector2
 	return sf::Vector2f(worldSpaceCoordinates.x - diffx, worldSpaceCoordinates.y - diffy);
 }
 
+sf::Shader* PlayState::shader = new sf::Shader();
 
 PlayState::PlayState(sf::RenderWindow &rwindow, int lvlnr)
 	: window(rwindow)
 {
-
-	staticshader = new sf::Shader();
+	shader->loadFromFile("res/shader/staticshader.vert", "res/shader/staticshader.frag");
+	
+	
 	std::string pre = "res/levels/level";
 	std::string nr = std::to_string(lvlnr);
 	std::string suff = ".png";
 	tilemap.loadFromFile(pre + nr + suff);
 	player = new Player(rwindow, sf::Vector2f(300, 500), tilemap.collisionTiles, tilemap.guards);
-	staticshader->loadFromFile("res/shader/staticshader.vert", "res/shader/staticshader.frag");
-	tilemap.setShader(staticshader);
-
+	
 	levelnumber = lvlnr;
 	if (levelnumber)
 	{
@@ -56,7 +56,7 @@ PlayState::~PlayState()
 bool PlayState::update(const float &delta, sf::View &view)
 {
 	player->update(delta, view);
-	staticshader->setUniform("playerPosition", player->position);
+	shader->setUniform("playerPosition", player->position);
 
 
 	for (sf::IntRect rect : tilemap.endTiles)
@@ -73,7 +73,7 @@ void PlayState::draw()
 {
 	window.draw(tilemap);
 
-	player->draw(staticshader);
+	player->draw(shader);
 	if (levelnumber == 1)
 	{
 		window.draw(creditsSprite);
