@@ -32,6 +32,7 @@ int main()
 	sf::Texture levelTileMap;
 
 	GameStateManager gsm;
+	MenuState *menu = new MenuState(window, gsm);
 	PlayState *playstate = new PlayState(window, currentlevel);
 
 	sf::Clock clock;
@@ -98,5 +99,6 @@ int main()
 		clock.restart();
 	}
 
+	delete menu;
 	window.close();
 }  
