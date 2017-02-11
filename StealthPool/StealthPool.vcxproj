@@ -166,6 +166,7 @@
     <ClCompile Include="src\gamestates\GameStateManager.cpp" />
     <ClCompile Include="src\gamestates\MenuState.cpp" />
     <ClCompile Include="src\gamestates\playstate.cpp" />
+    <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\levels\tiles\tile.cpp" />
     <ClCompile Include="src\levels\tiles\TileMap.cpp" />
     <ClCompile Include="src\menu\Button.cpp" />
@@ -177,10 +178,12 @@
     <ClInclude Include="src\gamestates\gamestatemanager.h" />
     <ClInclude Include="src\gamestates\menustate.h" />
     <ClInclude Include="src\gamestates\playstate.h" />
+    <ClInclude Include="src\game\game.h" />
     <ClInclude Include="src\levels\tiles\tile.h" />
     <ClInclude Include="src\levels\tiles\tilemap.h" />
     <ClInclude Include="src\menu\Button.h" />
     <ClInclude Include="src\utils\random.h" />
+    <ClInclude Include="src\utils\TimeStep.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\credits.png" />
