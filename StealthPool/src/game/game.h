@@ -25,6 +25,8 @@ private:
 	void update(TimeStep &timestep);
 	void draw();
 	void tick();
+	inline void mousePressed(sf::Event &ev);
+	inline void mouseReleased(sf::Event &ev);
 
 	bool fullscreen;
 	bool running = false;
