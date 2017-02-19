@@ -8,7 +8,7 @@ GameStateManager::~GameStateManager()
 {
 }
 
-void GameStateManager::draw(sf::RenderWindow &window) 
+void GameStateManager::draw() 
 {
 	gamestates.top()->draw();
 }

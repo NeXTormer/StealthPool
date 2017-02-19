@@ -10,7 +10,7 @@ class GameStateManager
 public:
 	GameStateManager();
 	~GameStateManager();
-	void draw(sf::RenderWindow &window);
+	void draw();
 	void update(const float &delta, sf::View &view);
 	void push(GameState *gamestate);
 	void pop();
