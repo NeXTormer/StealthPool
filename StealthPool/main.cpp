@@ -39,6 +39,7 @@ int main()
 	PlayState *playstate = new PlayState(window, currentlevel);
 
 	gsm.push(menu);
+	//gsm.push(playstate);
 
 
 
@@ -49,6 +50,7 @@ int main()
 		//Events and input
 		sf::Event ev;
 		while (window.pollEvent(ev)) {
+			gsm.handleEvent(ev);
 			switch (ev.type) {
 			case sf::Event::Closed:
 				window.close();
@@ -60,21 +62,19 @@ int main()
 
 				window.setSize(sf::Vector2u(ev.size.width, ev.size.height));
 				break;
-			case sf::Event::MouseButtonPressed:
-				playstate->mousePressed(ev);
-				break;
-			case sf::Event::MouseButtonReleased:
-				playstate->mouseReleased(ev);
-				break;
 			}
 		}
 
+		
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		{
-			delete playstate;
-			currentlevel = 1;
-			playstate = new PlayState(window, currentlevel);
-			view.setCenter(viewcenterbase);
+			if (playstate->isActive())
+			{
+				delete playstate;
+				currentlevel = 1;
+				playstate = new PlayState(window, currentlevel);
+				view.setCenter(viewcenterbase);
+			}
 		}
 		
 
@@ -82,7 +82,7 @@ int main()
 		window.setView(view);
 
 		//update & render
-		gsm.draw(window);			//playstate->draw();
+		gsm.draw();			//playstate->draw();
 		if (playstate->update(10, view))
 		{
 			std::string pre = "res/levels/level";

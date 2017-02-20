@@ -14,9 +14,10 @@ public:
 
 	bool update(const float &delta, sf::View &view) override;
 	void draw() override;
+	void handleEvent(sf::Event &e) override;
 	void mousePressed(sf::Event &ev);
 	void mouseReleased(sf::Event &ev);
-
+	bool isActive();
 	Player *player;
 
 	static sf::Shader *shader;

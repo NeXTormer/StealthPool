@@ -9,7 +9,7 @@ public:
 
 	bool update(const float &delta, sf::View &view) override;
 	void draw() override;
-
+	void handleEvent(sf::Event &e) override;
 private:
 	sf::Texture menuBackgroundTexture;
 	sf::Sprite menuBackground;

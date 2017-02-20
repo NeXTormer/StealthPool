@@ -21,10 +21,17 @@ void GameStateManager::update(const float &delta, sf::View &view)
 void GameStateManager::push(GameState *gamestate)
 {
 	gamestates.push(gamestate);
+	gamestate->active = true;
 }
 
 void GameStateManager::pop()
 {
+	gamestates.top()->active = false;
 	gamestates.pop();
+}
+
+void GameStateManager::handleEvent(sf::Event &e)
+{
+	gamestates.top()->handleEvent(e);
 }
 

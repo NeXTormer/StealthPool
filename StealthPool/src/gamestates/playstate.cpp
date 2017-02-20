@@ -79,3 +79,21 @@ void PlayState::draw()
 		window.draw(creditsSprite);
 	}
 }
+
+void PlayState::handleEvent(sf::Event &e)
+{
+	switch (e.type) 
+	{
+	case sf::Event::MouseButtonPressed:
+		mousePressed(e);
+		break;
+	case sf::Event::MouseButtonReleased:
+		mouseReleased(e);
+		break;
+	}
+}
+
+bool PlayState::isActive()
+{
+	return active;
+}
