@@ -1,6 +1,6 @@
 #include "Button.h"
 
-Button::Button(sf::Vector2f pos, sf::Vector2i size, sf::Texture image, sf::Vector2f texturesize, void(*callbackf) ())
+Button::Button(sf::Vector2f pos, sf::Vector2i size, sf::Texture image, sf::Vector2f texturesize, void(MenuState::*callbackf) ())
 	: mesh(sf::Quads, 4)
 {
 	this->callback = callbackf;
@@ -9,7 +9,7 @@ Button::Button(sf::Vector2f pos, sf::Vector2i size, sf::Texture image, sf::Vecto
 	this->texturesize = texturesize;
 }
 
-Button::Button(sf::Vector2f pos, sf::Vector2i size, sf::Texture image, void(*callbackf) ())
+Button::Button(sf::Vector2f pos, sf::Vector2i size, sf::Texture image, void(MenuState::*callbackf) ())
 	: mesh(sf::Quads, 4)
 {
 	this->callback = callbackf;
@@ -22,7 +22,7 @@ void Button::mousePressed(sf::Event e)
 {
 	if (sf::IntRect(sf::Vector2i(getPosition().x, getPosition().y), size).contains(e.mouseButton.x, e.mouseButton.y))
 	{
-		return callback();
+		callback;
 	}
 }
 
@@ -50,5 +50,14 @@ void Button::mouseMoved(sf::Event e)
 			mesh[3].texCoords = sf::Vector2f(0, texturesize.y);
 		}
 	}
+}
+
+void Button::draw(sf::RenderTarget & target, sf::RenderStates renderstates) const
+{
+	renderstates.transform = getTransform();
+	renderstates.texture = &image;
+	
+	target.draw(mesh, renderstates);
+
 }
 

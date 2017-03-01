@@ -1,5 +1,7 @@
 #pragma once
 #include "gamestatemanager.h"
+#include "../menu/Button.h"
+
 
 class MenuState : virtual public GameState
 {
@@ -11,10 +13,13 @@ public:
 	void draw() override;
 	void handleEvent(sf::Event &e) override;
 private:
+	void buttonPressed();
+
 	sf::Texture menuBackgroundTexture;
 	sf::Sprite menuBackground;
 
 	sf::Texture playBtnTexture;
+	Button playbutton;
 
 	GameStateManager &gamestatemanager;
 	sf::RenderWindow &window;
