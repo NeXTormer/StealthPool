@@ -1,6 +1,6 @@
 #include "Button.h"
 
-Button::Button(sf::Vector2f pos, sf::Vector2i size, sf::Texture image, sf::Vector2f texturesize, void(MenuState::*callbackf) ())
+Button::Button(sf::Vector2f pos, sf::Vector2i size, sf::Texture image, sf::Vector2f texturesize, void(* callbackf) ())
 	: mesh(sf::Quads, 4)
 {
 	this->callback = callbackf;
@@ -9,7 +9,7 @@ Button::Button(sf::Vector2f pos, sf::Vector2i size, sf::Texture image, sf::Vecto
 	this->texturesize = texturesize;
 }
 
-Button::Button(sf::Vector2f pos, sf::Vector2i size, sf::Texture image, void(MenuState::*callbackf) ())
+Button::Button(sf::Vector2f pos, sf::Vector2i size, sf::Texture image, void(* callbackf) ())
 	: mesh(sf::Quads, 4)
 {
 	this->callback = callbackf;

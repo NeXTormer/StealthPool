@@ -19,7 +19,6 @@ private:
 	sf::Sprite menuBackground;
 
 	sf::Texture playBtnTexture;
-	Button playbutton;
 
 	GameStateManager &gamestatemanager;
 	sf::RenderWindow &window;
