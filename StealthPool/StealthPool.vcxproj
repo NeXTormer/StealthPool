@@ -173,6 +173,7 @@
     <ClCompile Include="src\menu\Button.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="src\entities\guard.h" />
     <ClInclude Include="src\entities\player.h" />
     <ClInclude Include="src\gamestates\gamestate.h" />
@@ -194,6 +195,7 @@
     <Image Include="res\guardtexture.png" />
     <Image Include="res\guardtexture2.png" />
     <Image Include="res\guardtextureDead.png" />
+    <Image Include="res\icon.ico" />
     <Image Include="res\levels\level1.png" />
     <Image Include="res\levels\level2.png" />
     <Image Include="res\levels\level3.png" />
@@ -208,6 +210,9 @@
   <ItemGroup>
     <None Include="res\shader\staticshader.frag" />
     <None Include="res\shader\staticshader.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="StealthPool.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
