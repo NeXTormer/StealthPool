@@ -2,6 +2,10 @@
 #include <SFML/Graphics.hpp>
 #include <random>
 
+#ifndef SP_DEBUG
+#include <windows.h>
+#endif
+
 #include "src\gamestates\gamestatemanager.h"
 #include "src\gamestates\menustate.h"
 #include "src\gamestates\playstate.h"
@@ -10,7 +14,11 @@
 
 #include "src\game\game.h"
 
+#ifdef SP_DEBUG
 int main()
+#else
+int WINAPI WinMain(HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpszArgument, int nCmdShow)
+#endif
 {
 
 	//Create Window
@@ -35,11 +43,11 @@ int main()
 	GameStateManager gsm;
 	
 	//Create Gamestates
-	MenuState *menu = new MenuState(window, gsm);
+	//MenuState *menu = new MenuState(window, gsm);
 	PlayState *playstate = new PlayState(window, currentlevel);
 
-	gsm.push(menu);
-	//gsm.push(playstate);
+	//gsm.push(menu);
+	gsm.push(playstate);
 
 
 
@@ -103,7 +111,7 @@ int main()
 		printf("FPS: %f \n", 1.0f / clock.getElapsedTime().asSeconds());
 		clock.restart();
 	}
-	delete menu;
+	//delete menu;
 	window.close();
 
 
