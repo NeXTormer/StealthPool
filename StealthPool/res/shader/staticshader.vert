@@ -1,5 +1,5 @@
 
-out vec4 pos;
+varying out vec4 pos;
 
 
 void main()

@@ -86,11 +86,7 @@ int WINAPI WinMain(HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpszA
 		}
 		
 
-		window.clear(clearcolor);
-		window.setView(view);
-
-		//update & render
-		gsm.draw();			//playstate->draw();
+		//update
 		if (playstate->update(10, view))
 		{
 			std::string pre = "res/levels/level";
@@ -107,10 +103,17 @@ int WINAPI WinMain(HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpszA
 			delete playstate;
 			playstate = new PlayState(window, currentlevel);
 		}
+
+		//draw
+		window.clear(clearcolor);
+		window.setView(view);
+		gsm.draw();			//playstate->draw();
+
 		window.display();
 		printf("FPS: %f \n", 1.0f / clock.getElapsedTime().asSeconds());
 		clock.restart();
 	}
+
 	//delete menu;
 	window.close();
 
